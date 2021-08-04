@@ -6,12 +6,6 @@ CORGIB is the NFT MarketPlace for Meme coins build on Binance Smart Chain.
 
 ![Website Screenshot](corgib.png)
 
-
-Following features are developed:
-
-1. Euro Cup 2021 Football Tournament betting platform using Binance Smar Chain.
-2. Landing Page for the Corgib.
-3. MarketPlace for Meme Tokens and NFTs.
 ## Available Scripts
 
 In the project directory, you can run:
