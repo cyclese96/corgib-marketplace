@@ -1,7 +1,7 @@
 
-# The CORGI Of PolkaBridge - A Meme Token | Website Landing Page
+# The CORGI Of PolkaBridge - NFT MarketPlace DApp
 
-CORGIB is the NFT MarketPlace for Meme coins build on Binance Smart Chain. Betting Contract for Euro Cup 2021 is also added.
+CORGIB is the NFT MarketPlace for Meme coins build on Binance Smart Chain.
 
 
 ![Website Screenshot](corgib.png)
