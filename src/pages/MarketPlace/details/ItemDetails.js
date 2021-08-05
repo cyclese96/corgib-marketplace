@@ -167,7 +167,7 @@ function ItemDetails() {
       <Link to="/" className={classes.link}>
         <h2 className={classes.heading}>
           <ArrowBack />
-          Item Details
+          Item Detail
         </h2>
       </Link>
       <div className={classes.mainCard}>
