@@ -50,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
   },
   bgImage: {
-    backgroundImage: `url('https://img.rarible.com/prod/image/upload/t_gif_preview/prod-itemImages/0xfe2bab90dd0dbbfe48ade8e29d66d38cba05f89e:3')`,
+    backgroundImage: `url('https://www.cgmasteracademy.com/wp-content/uploads/2021/01/samantha_combaluzier_student_interview_featured.jpg')`,
     backgroundPosition: "center",
     backgroundSize: "cover",
     padding: 10,
