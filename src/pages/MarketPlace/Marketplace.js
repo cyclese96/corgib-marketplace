@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import TopCard from "./../../components/TopCard";
 import ItemsSection from "./../../components/ItemsSection";
@@ -6,6 +6,8 @@ import TopArtist from "./../../components/TopArtist";
 import LiveAuctions from "./details/LiveAuctions";
 import HotCollection from "./details/HotCollection";
 import TopBid from "./details/TopBid";
+import Footer from "../../common/Footer";
+import Category from "../../components/Category";
 
 const useStyles = makeStyles((theme) => ({
   background: {
@@ -27,6 +29,8 @@ function Marketplace() {
         <LiveAuctions />
         <HotCollection />
         <TopBid />
+        <Category />
+        <Footer />
       </section>
     </div>
   );

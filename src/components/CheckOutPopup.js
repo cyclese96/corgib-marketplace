@@ -105,20 +105,29 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: 40,
   },
   actionButton: {
-    background: `linear-gradient(to right,#7b1fa2, #4a148c)`,
+    background: `#25069A`,
     color: "white",
     width: 250,
     height: 45,
     marginBottom: 10,
     borderRadius: 40,
     border: "1px solid white",
+    cursor: "pointer",
+    "&:hover": {
+      background: "#180465",
+    },
   },
   cancelButton: {
     background: "white",
-    color: `linear-gradient(to right,#7b1fa2, #4a148c)`,
+    color: "black",
     width: 250,
     height: 45,
     borderRadius: 40,
+    cursor: "pointer",
+    "&:hover": {
+      background: "black",
+      color: "red",
+    },
   },
 }));
 

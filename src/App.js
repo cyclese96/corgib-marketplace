@@ -15,13 +15,12 @@ export default function App() {
       <Router>
         <ThemeProvider theme={theme}>
           <Switch>
-            
             <Route exact path="/">
-            <Appbar />
+              <Appbar />
               <Marketplace />
             </Route>
             <Route exact path="/item-detail">
-            <Appbar />
+              <Appbar />
               <ItemDetails />
             </Route>
           </Switch>
