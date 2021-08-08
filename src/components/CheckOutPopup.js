@@ -126,7 +126,7 @@ const useStyles = makeStyles((theme) => ({
     cursor: "pointer",
     "&:hover": {
       background: "black",
-      color: "red",
+      color: "white",
     },
   },
 }));

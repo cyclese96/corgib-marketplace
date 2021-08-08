@@ -3,8 +3,46 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Button } from "@material-ui/core";
 import { ArrowBack, Edit } from "@material-ui/icons";
 import { Link } from "react-router-dom";
-
 import CheckOutPopup from "../../../components/CheckOutPopup";
+import PropTypes from "prop-types";
+import AppBar from "@material-ui/core/AppBar";
+import Tabs from "@material-ui/core/Tabs";
+import Tab from "@material-ui/core/Tab";
+import Typography from "@material-ui/core/Typography";
+import Box from "@material-ui/core/Box";
+
+function TabPanel(props) {
+  const { children, value, index, ...other } = props;
+
+  return (
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`scrollable-auto-tabpanel-${index}`}
+      aria-labelledby={`scrollable-auto-tab-${index}`}
+      {...other}
+    >
+      {value === index && (
+        <Box p={3}>
+          <Typography>{children}</Typography>
+        </Box>
+      )}
+    </div>
+  );
+}
+
+TabPanel.propTypes = {
+  children: PropTypes.node,
+  index: PropTypes.any.isRequired,
+  value: PropTypes.any.isRequired,
+};
+
+function a11yProps(index) {
+  return {
+    id: `scrollable-auto-tab-${index}`,
+    "aria-controls": `scrollable-auto-tabpanel-${index}`,
+  };
+}
 
 const useStyles = makeStyles((theme) => ({
   background: {
@@ -98,7 +136,7 @@ const useStyles = makeStyles((theme) => ({
   sectionCard: {
     backgroundColor: "#15134A",
     width: 600,
-    minHeight: 400,
+    minHeight: 600,
     padding: 10,
     marginRight: 10,
     marginLeft: 10,
@@ -147,6 +185,71 @@ const useStyles = makeStyles((theme) => ({
   highlight: {
     color: `rgba(89, 210, 188, 1)`,
   },
+  tab: {
+    fontSize: 14,
+    fontWeight: 600,
+    color: "white",
+    backgroundColor: "#222831",
+  },
+  profileNftCard: {
+    backgroundColor: "#9DC6A7",
+    width: 300,
+    padding: 10,
+    marginRight: 10,
+    marginLeft: 10,
+    marginBottom: 20,
+    borderRadius: 10,
+    display: "flex",
+    justifyContent: "space-between",
+  },
+  profileBgImage: {
+    backgroundImage: `url('https://www.designesia.com/themes/gigaland/images/author/author-5.jpg')`,
+    backgroundPosition: "center",
+    backgroundSize: "cover",
+    padding: 10,
+    height: 50,
+    width: 50,
+    borderRadius: "40%",
+  },
+
+  profileTextBox: {
+    paddingLeft: 15,
+  },
+  profilCardText: {
+    color: "white",
+    fontWeight: 400,
+    verticalAlign: "baseline",
+    letterSpacing: "-0.8px",
+    paddingBottom: 0,
+    fontSize: 16,
+    textAlign: "left",
+    [theme.breakpoints.down("md")]: {
+      fontSize: 14,
+    },
+  },
+  profileButton: {
+    color: "white",
+    textTransform: "none",
+    borderRadius: "12px",
+    padding: "8px 16px 8px 16px",
+    fontWeight: 500,
+    marginRight: 12,
+    background: `linear-gradient(to right,#7b1fa2, #4a148c)`,
+    fontSize: 14,
+    filter: `drop-shadow(0 0 0.1rem #4a148c)`,
+  },
+  profileCardText: {
+    color: theme.palette.market.textPrimary,
+    fontWeight: 400,
+    verticalAlign: "baseline",
+    letterSpacing: "-0.8px",
+    paddingBottom: 0,
+    fontSize: 16,
+    textAlign: "left",
+    [theme.breakpoints.down("md")]: {
+      fontSize: 14,
+    },
+  },
 }));
 
 function ItemDetails() {
@@ -159,6 +262,11 @@ function ItemDetails() {
 
   const handleClose = () => {
     setOpen(false);
+  };
+  const [value, setValue] = React.useState(0);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
   };
 
   return (
@@ -199,10 +307,63 @@ function ItemDetails() {
                   </p>
                 </div>
                 <div className="my-4">
-                  <h5>
-                    Highest Bid:{" "}
-                    <strong className={classes.highlight}>1.3 ETH</strong>
-                  </h5>
+                  <div className={classes.root}>
+                    <AppBar position="static" color="default">
+                      <Tabs
+                        value={value}
+                        onChange={handleChange}
+                        className={classes.tab}
+                        indicatorColor="primary"
+                      >
+                        <Tab label="Purchase By" {...a11yProps(0)} />
+                        <Tab
+                          classname={classes.tabSection}
+                          label="Details"
+                          {...a11yProps(1)}
+                        />
+                        <Tab label="History" {...a11yProps(2)} />
+                      </Tabs>
+                    </AppBar>
+                    <TabPanel value={value} index={0}>
+                      <p>No active bid yet</p>
+                    </TabPanel>
+                    <TabPanel value={value} index={1}>
+                      <div>
+                        <div className="d-flex justify-content-start">
+                          <div className={classes.profileBgImage}></div>
+                          <div className={classes.profileTextBox}>
+                            <Link to="/market/profile" className={classes.link}>
+                              <h6 className={classes.profileCardText}>
+                                <strong>Carry Minati</strong>
+                              </h6>
+                            </Link>
+                            <h6 className={classes.profileCardText}>
+                              <strong>Add : </strong>
+                              0x5b7d8993e...b17d
+                            </h6>
+                          </div>
+                        </div>
+                      </div>
+                    </TabPanel>
+                    <TabPanel value={value} index={2}>
+                      <div>
+                        <div className="d-flex justify-content-start">
+                          <div className={classes.profileBgImage}></div>
+                          <div className={classes.profileTextBox}>
+                            <Link to="/market/profile" className={classes.link}>
+                              <h6 className={classes.profileCardText}>
+                                <strong>Carry Minati</strong>
+                              </h6>
+                            </Link>
+                            <h6 className={classes.profileCardText}>
+                              <strong>Transferred to : </strong>
+                              0x5b7d8993e...b17d
+                            </h6>
+                          </div>
+                        </div>
+                      </div>
+                    </TabPanel>
+                  </div>
                 </div>
                 <div className="d-flex justify-content-start">
                   <div className="text-center">

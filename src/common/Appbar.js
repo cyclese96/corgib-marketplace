@@ -175,11 +175,11 @@ export default function MarketAppbar() {
     >
       <List>
         {[
-          { name: "About", id: "about" },
-          { name: "Features", id: "features" },
+          { name: "Explore", id: "explore" },
+          { name: "Activities", id: "activities" },
           // { name: 'Team', id: 'team' },
-          { name: "Roadmap", id: "roadmap" },
-          { name: "Tokenomics", id: "tokenomics" },
+          { name: "Profile", id: "profile" },
+          { name: "Wallet", id: "wallet" },
         ].map((tab, index) => (
           <Link
             activeClass="active"
