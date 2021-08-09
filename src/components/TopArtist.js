@@ -1,36 +1,36 @@
-import React, { useEffect, useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import { Button } from '@material-ui/core';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import { Button } from "@material-ui/core";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   background: {
     color: theme.palette.market.textPrimary,
     padding: 30,
-    width: '100%',
+    width: "100%",
   },
 
   heading: {
     color: theme.palette.pbr.textPrimary,
     fontSize: 20,
     fontWeight: 600,
-    letterSpacing: '-0.1px',
-    verticalAlign: 'middle',
-    wordSpacing: '0px',
+    letterSpacing: "-0.1px",
+    verticalAlign: "middle",
+    wordSpacing: "0px",
     paddingBottom: 5,
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down("md")]: {
       fontSize: 18,
     },
   },
   para: {
     color: theme.palette.market.textPrimary,
     fontWeight: 400,
-    verticalAlign: 'baseline',
-    letterSpacing: '-0.8px',
+    verticalAlign: "baseline",
+    letterSpacing: "-0.8px",
     width: 400,
     paddingBottom: 20,
     fontSize: 16,
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down("md")]: {
       fontSize: 14,
     },
   },
@@ -38,10 +38,10 @@ const useStyles = makeStyles((theme) => ({
     padding: 20,
   },
   actionButton: {
-    color: 'white',
-    textTransform: 'none',
-    borderRadius: '12px',
-    padding: '8px 16px 8px 16px',
+    color: "white",
+    textTransform: "none",
+    borderRadius: "12px",
+    padding: "8px 16px 8px 16px",
     fontWeight: 500,
     marginRight: 12,
     background: `linear-gradient(to right,#7b1fa2, #4a148c)`,
@@ -49,10 +49,10 @@ const useStyles = makeStyles((theme) => ({
     filter: `drop-shadow(0 0 0.1rem #4a148c)`,
   },
   normalButton: {
-    color: 'white',
-    textTransform: 'none',
-    borderRadius: '12px',
-    padding: '8px 16px 8px 16px',
+    color: "white",
+    textTransform: "none",
+    borderRadius: "12px",
+    padding: "8px 16px 8px 16px",
     fontWeight: 500,
     background: `linear-gradient(to right,#3f51b5, #1a237e)`,
     fontSize: 14,
@@ -62,53 +62,53 @@ const useStyles = makeStyles((theme) => ({
   viewAll: {
     color: theme.palette.market.textPrimary,
     fontWeight: 400,
-    verticalAlign: 'baseline',
-    letterSpacing: '-0.8px',
+    verticalAlign: "baseline",
+    letterSpacing: "-0.8px",
     width: 400,
     paddingBottom: 20,
     fontSize: 16,
-    textAlign: 'right',
-    [theme.breakpoints.down('md')]: {
+    textAlign: "right",
+    [theme.breakpoints.down("md")]: {
       fontSize: 14,
     },
   },
   mainCard: {
-    backgroundColor: 'white',
+    backgroundColor: "white",
     height: 200,
     padding: 15,
     borderRadius: 30,
-    width: '100%',
+    width: "100%",
     background: `linear-gradient(to right,#1C1656, #1C1656)`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'center',
-    [theme.breakpoints.down('md')]: {
-      flexDirection: 'column',
-      justifyContent: 'start',
-      height: '100%',
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    [theme.breakpoints.down("md")]: {
+      flexDirection: "column",
+      justifyContent: "start",
+      height: "100%",
     },
   },
   nftCard: {
-    backgroundColor: '#15134A',
+    backgroundColor: "#15134A",
     width: 300,
     padding: 10,
     marginRight: 10,
     marginLeft: 10,
     marginBottom: 20,
     borderRadius: 10,
-    display: 'flex',
-    justifyContent: 'space-between',
+    display: "flex",
+    justifyContent: "space-between",
   },
   bgImage: {
     backgroundImage: `url('https://hiseye.org/wp-content/uploads/2021/03/CryptoKitty.jpg')`,
-    backgroundPosition: 'center',
-    backgroundSize: 'cover',
+    backgroundPosition: "center",
+    backgroundSize: "cover",
     padding: 10,
     height: 50,
     width: 50,
-    borderRadius: '40%',
+    borderRadius: "40%",
   },
 
   textBox: {
@@ -117,12 +117,12 @@ const useStyles = makeStyles((theme) => ({
   cardText: {
     color: theme.palette.market.textPrimary,
     fontWeight: 400,
-    verticalAlign: 'baseline',
-    letterSpacing: '-0.8px',
+    verticalAlign: "baseline",
+    letterSpacing: "-0.8px",
     paddingBottom: 0,
     fontSize: 16,
-    textAlign: 'left',
-    [theme.breakpoints.down('md')]: {
+    textAlign: "left",
+    [theme.breakpoints.down("md")]: {
       fontSize: 14,
     },
   },

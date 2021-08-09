@@ -8,6 +8,7 @@ import { Provider } from "react-redux";
 import store from "./store";
 import Marketplace from "./pages/MarketPlace/Marketplace";
 import ItemDetails from "./pages/MarketPlace/details/ItemDetails";
+import Profile from "./pages/Profile/Profile";
 
 export default function App() {
   return (
@@ -22,6 +23,10 @@ export default function App() {
             <Route exact path="/item-detail">
               <Appbar />
               <ItemDetails />
+            </Route>
+            <Route exact path="/market/profile">
+              <Appbar />
+              <Profile />
             </Route>
           </Switch>
         </ThemeProvider>
