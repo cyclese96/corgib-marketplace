@@ -7,6 +7,43 @@ const useStyles = makeStyles((theme) => ({
     padding: 30,
     width: "100%",
   },
+  headingTop: {
+    color: theme.palette.pbr.textPrimary,
+    fontSize: 20,
+    fontWeight: 600,
+    letterSpacing: "-0.1px",
+    verticalAlign: "middle",
+    wordSpacing: "0px",
+    paddingBottom: 5,
+    [theme.breakpoints.down("md")]: {
+      fontSize: 18,
+    },
+  },
+  filter: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  filterWrapper: {
+    height: 70,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+
+  filterButton: {
+    border: "1px solid ",
+    borderRadius: 10,
+    height: 40,
+    width: 150,
+    background: `linear-gradient(to right,#7b1fa2, #4a148c)`,
+    filter: `drop-shadow(0 0 0.1rem #4a148c)`,
+    marginRight: "10px",
+    color: "white",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
   heading: {
     color: theme.palette.pbr.textPrimary,
     fontSize: 20,
@@ -20,8 +57,11 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   cardWrapper: {
+    borderTop: 10,
+    borderBottom: 10,
+    borderColor: "red",
     backgroundColor: "white",
-    height: 500,
+    height: 400,
     padding: 15,
     borderRadius: 30,
     width: "100%",
@@ -40,7 +80,7 @@ const useStyles = makeStyles((theme) => ({
   auctionCard: {
     backgroundColor: "#15134A",
     width: 300,
-    height: 450,
+    height: 350,
     padding: 10,
     marginRight: 10,
     marginLeft: 10,
@@ -50,7 +90,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
   },
   bgImage: {
-    backgroundImage: `url('https://img.rarible.com/prod/image/upload/t_gif_preview/prod-itemImages/0x283f687f87a0052696aaa5ab7a31694a3a6762c5:18')`,
+    backgroundImage: `url('https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/attachments/delivery/asset/f5f59b47b844b2b3fd1948248fc72e9d-1615402423/Super-Man-XRP-2/make-animated-nft-for-you.gif')`,
     backgroundPosition: "center",
     backgroundSize: "cover",
     padding: 10,
@@ -86,17 +126,13 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
-function LiveAuction() {
+
+function ItemCard() {
   const classes = useStyles();
   return (
     <div className={classes.background}>
       <div className="row">
         <div className="col-md-12">
-          <div className="d-flex justify-content-between">
-            <div>
-              <h2 className={classes.heading}>Live Auctions</h2>
-            </div>
-          </div>
           <div className={classes.cardWrapper}>
             <div className={classes.mainCard}>
               <div>
@@ -189,4 +225,4 @@ function LiveAuction() {
   );
 }
 
-export default LiveAuction;
+export default ItemCard;

@@ -9,26 +9,31 @@ import store from "./store";
 import Marketplace from "./pages/MarketPlace/Marketplace";
 import ItemDetails from "./pages/MarketPlace/details/ItemDetails";
 import Profile from "./pages/Profile/Profile";
+import LeftBar from "./common/LeftBar";
 
 export default function App() {
   return (
     <Provider store={store}>
       <Router>
         <ThemeProvider theme={theme}>
-          <Switch>
-            <Route exact path="/">
-              <Appbar />
-              <Marketplace />
-            </Route>
-            <Route exact path="/item-detail">
-              <Appbar />
-              <ItemDetails />
-            </Route>
-            <Route exact path="/market/profile">
-              <Appbar />
-              <Profile />
-            </Route>
-          </Switch>
+          <div className="row g-0">
+            {/* <div className="col-md-2">
+              <LeftBar />
+            </div> */}
+            <div className="col-md-12">
+              <Switch>
+                <Route exact path="/">
+                  <Marketplace />
+                </Route>
+                <Route exact path="/item-detail">
+                  <ItemDetails />
+                </Route>
+                <Route exact path="/market/profile">
+                  <Profile />
+                </Route>
+              </Switch>
+            </div>
+          </div>
         </ThemeProvider>
       </Router>
     </Provider>

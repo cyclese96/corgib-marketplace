@@ -17,6 +17,7 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: 5,
     [theme.breakpoints.down("md")]: {
       fontSize: 18,
+      paddingTop: 70,
     },
   },
   cardWrapper: {
@@ -86,7 +87,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
-function LiveAuction() {
+function TopBid() {
   const classes = useStyles();
   return (
     <div className={classes.background}>
@@ -161,27 +162,6 @@ function LiveAuction() {
                 </div>
               </div>
             </div>
-            <div className={classes.mainCard}>
-              <div>
-                <div className={classes.auctionCard}>
-                  <div className="d-flex justify-content-start">
-                    <div className={classes.bgImage}>
-                      <div className={classes.textBox}>
-                        <h6 className={classes.cardText}>
-                          <strong>Dragon of Wonder Request</strong>
-                        </h6>
-                        <h6 className={classes.subHeading}>
-                          <strong>Highest Bid 1/1</strong>
-                        </h6>
-                        <h6 className={classes.subHeading}>
-                          <strong>Ether</strong>
-                        </h6>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -189,4 +169,4 @@ function LiveAuction() {
   );
 }
 
-export default LiveAuction;
+export default TopBid;

@@ -17,6 +17,7 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: 5,
     [theme.breakpoints.down("md")]: {
       fontSize: 18,
+      paddingTop: 70,
     },
   },
   cardWrapper: {
@@ -148,27 +149,6 @@ function HotCollection() {
                         </h6>
                         <h6 className={classes.subHeading}>
                           <strong>ERC - 271</strong>
-                        </h6>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className={classes.mainCard}>
-              <div>
-                <div className={classes.auctionCard}>
-                  <div className="d-flex justify-content-start">
-                    <div className={classes.bgImage}>
-                      <div className={classes.wrappedProfileIcon}>
-                        <div className={classes.profileIcon}></div>
-                      </div>
-                      <div className={classes.textBox}>
-                        <h6 className={classes.cardText}>
-                          <strong>Dragon of Wonder Request</strong>
-                        </h6>
-                        <h6 className={classes.subHeading}>
-                          <strong>Highest Bid 1/1</strong>
                         </h6>
                       </div>
                     </div>

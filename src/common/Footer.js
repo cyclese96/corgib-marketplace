@@ -11,7 +11,6 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.market.primary,
     color: theme.palette.market.textPrimary,
     padding: 30,
-    width: "100%",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",

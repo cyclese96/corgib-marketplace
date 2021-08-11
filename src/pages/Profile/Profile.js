@@ -262,7 +262,7 @@ function Profile() {
                   Edit Profile
                 </Button>
               </div>
-              <hr style={{ height: 1 }} />
+              <hr style={{ height: 2 }} />
               <div className="text-center mt-3">
                 <div className="mt-3">
                   <p className={classes.para}>Member since 2021</p>

@@ -44,7 +44,6 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 13,
     fontWeight: 500,
     padding: "8px 15px 8px 15px",
-    marginRight: "12px",
     cursor: "pointer",
     height: "40px",
 

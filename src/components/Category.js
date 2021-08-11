@@ -91,7 +91,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
   },
   bgImage: {
-    backgroundImage: `url('https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/attachments/delivery/asset/f5f59b47b844b2b3fd1948248fc72e9d-1615402423/Super-Man-XRP-2/make-animated-nft-for-you.gif')`,
+    backgroundImage: `url('https://uploads-ssl.webflow.com/5ead65b4cd1146b85071bfdf/600ae2232a839f53fe53de1d_93C7F6A6-5C99-46D7-9276-B4DEB000AAAC.gif')`,
     backgroundPosition: "center",
     backgroundSize: "cover",
     padding: 10,
@@ -132,30 +132,9 @@ function Category() {
   const classes = useStyles();
   return (
     <div className={classes.background}>
-      <div className={classes.filter}>
-        <div className={classes.filterWrapper}>
-          <button className={classes.filterButton}>Art</button>
-          <button className={classes.filterButton}>Defi</button>
-          <button className={classes.filterButton}>Domain</button>
-          <button className={classes.filterButton}>Games</button>
-          <button className={classes.filterButton}>Music</button>
-          <CustomMenu />
-        </div>
-      </div>
       <div>
         <div className="row">
           <div className="col-md-12">
-            <div className="d-flex justify-content-between">
-              <div>
-                <h2 className={classes.heading}>
-                  Explore Items{" "}
-                  <img
-                    src="https://static.vecteezy.com/system/resources/previews/001/188/566/original/fire-png.png"
-                    height="30px"
-                  />
-                </h2>
-              </div>
-            </div>
             <div className={classes.cardWrapper}>
               <div className={classes.mainCard}>
                 <div>

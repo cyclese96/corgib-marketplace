@@ -3,15 +3,22 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Button, Tabs } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import Typography from "@material-ui/core/Typography";
-
+import MusicNoteIcon from "@material-ui/icons/MusicNote";
+import VideoCallIcon from "@material-ui/icons/VideoCall";
+import SportsEsportsIcon from "@material-ui/icons/SportsEsports";
+import FavoriteIcon from "@material-ui/icons/Favorite";
 const useStyles = makeStyles((theme) => ({
   background: {
     backgroundColor: theme.palette.market.primary,
     color: theme.palette.market.textPrimary,
-    minHeight: "50vh",
+    height: "3623px",
     paddingLeft: 30,
     paddingRight: 30,
+    paddingTop: 30,
     width: "100%",
+    [theme.breakpoints.down("md")]: {
+      height: "80vh",
+    },
   },
   logo: {
     fontWeight: 600,
@@ -81,10 +88,12 @@ const useStyles = makeStyles((theme) => ({
     textTransform: "none",
     borderRadius: "12px",
     padding: "8px 16px 8px 16px",
-    fontWeight: 500,
+    fontWeight: 400,
     background: `linear-gradient(to right,#3f51b5, #1a237e)`,
-    fontSize: 14,
+    fontSize: 12,
     filter: `drop-shadow(0 0 0.1rem #1a237e)`,
+    marginBottom: 40,
+    width: 125,
   },
   viewAll: {
     color: theme.palette.market.textPrimary,
@@ -219,94 +228,96 @@ const useStyles = makeStyles((theme) => ({
     height: 250,
     borderRadius: 10,
   },
-  iconWrapper: {
-    color: "white",
-    display: "flex",
-    justifyContent: "space-around",
-    alignItems: "center",
-  },
-  icons: {
-    "&:hover": {
-      color: "#1EAE98",
-    },
-  },
 }));
-function Appbar() {
+function LeftBar() {
   const classes = useStyles();
   return (
     <div className={classes.background}>
       <div className={classes.mainCard}>
         <div className="row container">
-          <div className="col-md-2">
-            <div className={classes.sectionCard1}>
-              <div className="d-flex-column justify-content-start">
-                <div className="text-center">
-                  <div className={classes.title}>
-                    <Link to="/">
-                      <div className="justify-content-start align-items-center">
-                        <div style={{ paddingTop: 5, paddingBottom: 5 }}>
-                          <img src="/corgi.png" alt="logo" height="55px" />{" "}
-                        </div>{" "}
-                        <div className={classes.logo}>
-                          Corgib{" "}
-                          <span className={classes.highlight}>MarketPlace</span>
-                        </div>
-                        <div className="d-flex-column justify-content-end align-items-center">
-                          <Link to={"/market"}>
-                            <Typography
-                              className={classes.tabs}
-                              variant="body1"
-                              noWrap
-                              style={{ paddingBottom: 20 }}
-                            >
-                              Explore
-                            </Typography>
-                          </Link>
+          <div className={classes.sectionCard1}>
+            <div className="d-flex-column justify-content-center">
+              <div className="text-center">
+                <div className={classes.title}>
+                  <Link to="/">
+                    <div className="justify-content-start align-items-center">
+                      <div style={{ paddingTop: 5, paddingBottom: 5 }}>
+                        <img src="/corgi.png" alt="logo" height="55px" />{" "}
+                      </div>{" "}
+                      <div className={classes.logo}>
+                        Corgib{" "}
+                        <span className={classes.highlight}>MarketPlace</span>
+                      </div>
+                      <div className="d-flex-column justify-content-end align-items-center">
+                        <Link to={"/market"}>
+                          <Typography
+                            className={classes.tabs}
+                            variant="body1"
+                            noWrap
+                            style={{ paddingBottom: 20 }}
+                          >
+                            Explore
+                          </Typography>
+                        </Link>
 
-                          <Link to={"/market/profile"}>
-                            <Typography
-                              className={classes.tabs}
-                              variant="body1"
-                              style={{ paddingBottom: 20 }}
-                            >
-                              Activities
-                            </Typography>
-                          </Link>
-                          <Link to={"/market/profile"}>
-                            <Typography
-                              className={classes.tabs}
-                              variant="body1"
-                              style={{ paddingBottom: 20 }}
-                            >
-                              Profile
-                            </Typography>
-                          </Link>
+                        <Link to={"/market/profile"}>
+                          <Typography
+                            className={classes.tabs}
+                            variant="body1"
+                            style={{ paddingBottom: 20 }}
+                          >
+                            Activities
+                          </Typography>
+                        </Link>
+                        <Link to={"/market/profile"}>
+                          <Typography
+                            className={classes.tabs}
+                            variant="body1"
+                            style={{ paddingBottom: 20 }}
+                          >
+                            Profile
+                          </Typography>
+                        </Link>
 
-                          <div className={classes.sectionDesktop}>
-                            <div style={{ paddingTop: 20 }}>
-                              {" "}
-                              <div className="text-center">
-                                <Button className={classes.normalButton}>
-                                  Connect Wallet
-                                </Button>
-                              </div>
-                            </div>
-                          </div>
-                          <div className={classes.sectionDesktop}>
-                            <div style={{ paddingTop: 20 }}>
-                              {" "}
-                              <div className="text-center">
-                                <Button className={classes.normalButton}>
-                                  Cerate NFT
-                                </Button>
-                              </div>
+                        <div className={classes.sectionDesktop}>
+                          <div style={{ paddingTop: 20 }}>
+                            {" "}
+                            <div className="text-center">
+                              <Button className={classes.normalButton}>
+                                Connect Wallet
+                              </Button>
                             </div>
                           </div>
                         </div>
                       </div>
-                    </Link>
-                  </div>
-                </div>{" "}
+                    </div>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="row container" style={{ paddingTop: 30 }}>
+          <div className={classes.sectionCard1}>
+            <div className="d-flex-column justify-content-center">
+              <div className="text-center">
+                <div className={classes.title}>
+                  <Typography
+                    className={classes.tabs}
+                    variant="body1"
+                    noWrap
+                    style={{ paddingBottom: 20 }}
+                  >
+                    Collection
+                  </Typography>
+                  <MusicNoteIcon />
+                  <br />
+                  <VideoCallIcon />
+                  <br />
+                  <SportsEsportsIcon />
+                  <br />
+                  <FavoriteIcon />
+                </div>
               </div>
             </div>
           </div>
@@ -316,4 +327,4 @@ function Appbar() {
   );
 }
 
-export default Appbar;
+export default LeftBar;

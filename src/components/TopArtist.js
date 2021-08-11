@@ -139,7 +139,7 @@ function TopArtist() {
             <div>
               <h2 className={classes.heading}>Top Creators</h2>
             </div>
-            <div className={classes.viewAll}>View All</div>
+            <div className={classes.viewAll}></div>
           </div>
           <div className={classes.mainCard}>
             <div>

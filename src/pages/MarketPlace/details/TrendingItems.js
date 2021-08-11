@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
+import StarBorderIcon from "@material-ui/icons/StarBorder";
 
 const useStyles = makeStyles((theme) => ({
   background: {
@@ -59,7 +60,7 @@ const useStyles = makeStyles((theme) => ({
     verticalAlign: "baseline",
     letterSpacing: "-0.8px",
     width: 400,
-    paddingBottom: 20,
+    paddingBottom: 10,
     fontSize: 16,
     textAlign: "right",
     [theme.breakpoints.down("md")]: {
@@ -84,7 +85,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundPosition: "center",
     display: "flex",
     flexDirection: "row",
-    justifyContent: "center",
+    justifyContent: "space-around",
     alignItems: "center",
     [theme.breakpoints.down("md")]: {
       flexDirection: "column",
@@ -114,19 +115,9 @@ const useStyles = makeStyles((theme) => ({
 
     [theme.breakpoints.down("md")]: {},
   },
-  nftCard2: {
-    backgroundColor: "#15134A",
-    height: 340,
-    width: 250,
-    padding: 10,
-    marginRight: 10,
-    marginLeft: 10,
-    borderRadius: 10,
 
-    [theme.breakpoints.down("md")]: {},
-  },
   bgImage: {
-    backgroundImage: `url('https://i.redd.it/r042t3k4d4b61.gif')`,
+    backgroundImage: `url('https://nexo.io/media/pages/modules/header-bitcoin-halving/d70323b9df/nexo-bitcoin-halving.gif')`,
     backgroundPosition: "center",
     backgroundSize: "cover",
     padding: 10,
@@ -134,22 +125,6 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: 10,
   },
 
-  bgImage2: {
-    backgroundImage: `url('https://i.pinimg.com/originals/82/37/81/823781e9233402840be1851d40b77304.gif')`,
-    backgroundPosition: "center",
-    backgroundSize: "cover",
-    padding: 10,
-    height: 200,
-    borderRadius: 10,
-  },
-  bgImage3: {
-    backgroundImage: `url('https://i.pinimg.com/originals/82/37/81/823781e9233402840be1851d40b77304.gif')`,
-    backgroundPosition: "center",
-    backgroundSize: "cover",
-    padding: 10,
-    height: 320,
-    borderRadius: 10,
-  },
   normalButton: {
     color: "white",
     textTransform: "none",
@@ -194,12 +169,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "flex-start",
     paddingTop: 10,
   },
-  nftCardButton2: {
-    display: "flex",
-    justifyContent: "center",
-    paddingTop: 235,
-    paddingRight: 12,
-  },
+
   textBox: {
     paddingTop: 10,
     paddingLeft: 5,
@@ -216,23 +186,83 @@ const useStyles = makeStyles((theme) => ({
       fontSize: 14,
     },
   },
+  normalButtonRight: {
+    color: "white",
+    textTransform: "none",
+    borderRadius: "12px",
+    padding: "8px 16px 8px 16px",
+    fontWeight: 500,
+    background: `linear-gradient(to right,#3f51b5, #1a237e)`,
+    fontSize: 14,
+    filter: `drop-shadow(0 0 0.1rem #1a237e)`,
+    marginLeft: 20,
+  },
+  nftCardRight: {
+    backgroundColor: "#15134A",
+    width: 400,
+    height: 320,
+    padding: 10,
+    paddingTop: 30,
+    paddingLeft: 20,
+    borderRadius: 10,
+    display: "flex",
+    justifyContent: "flex-start",
+    flexDirection: "column",
+  },
+  bgImageRight: {
+    backgroundImage: `url('https://fsa.zobj.net/crop.php?r=B1ulGGYSPQjLYiGAzJ60q2qP2YC5agZVxpU0B-VPPbyeDRWxmg-YwVKyN337OOg9dZ7Ut5a8opr6DTOyqlmyzjmzEeYHAadKOz7UnK6NBRnOybChyy9IBQDqg8kNTksRzbMV2CkIAEiEbZGfvPq4B5jUKBSYop2c9FLMsvYEAPhBaLdgaL99kQuo0gVY1_xD2RmxhiHSlYqFoFKI')`,
+    backgroundPosition: "center",
+    backgroundSize: "cover",
+    padding: 10,
+    height: 50,
+    width: 50,
+    borderRadius: "30%",
+  },
+
+  textBoxRight: {
+    paddingLeft: 15,
+  },
+  cardTextRight: {
+    color: theme.palette.market.textPrimary,
+    fontWeight: 400,
+    verticalAlign: "baseline",
+    letterSpacing: "-0.8px",
+    paddingBottom: 0,
+    fontSize: 16,
+    textAlign: "left",
+    [theme.breakpoints.down("md")]: {
+      fontSize: 14,
+    },
+  },
+  innerCard: {
+    // backgroundColor: "#004D40",
+    height: 200,
+    width: 320,
+    padding: 10,
+    marginRight: 10,
+    marginLeft: 10,
+    borderRadius: 10,
+    background: `linear-gradient(to right,
+      #512DA8, #1a237e)`,
+    filter: `drop-shadow(0 0 0.1rem #1a237e)`,
+    marginTop: 15,
+  },
+  textBoxRight1: {
+    fontSize: 20,
+    color: "white",
+    display: "flex",
+    flexDirection: "column",
+  },
 }));
-
-function TopCard() {
+function TrendingItems() {
   const classes = useStyles();
-
   return (
     <div className={classes.background}>
       <div className="row">
-        <div className="col-12 col-sm-6 col-md-6">
+        <div className="col-md-8">
           <div className="d-flex justify-content-between">
             <div>
-              <h2 className={classes.heading}>Featured Items</h2>
-            </div>
-            <div className={classes.viewAll}>
-              <Link to="/item-detail" className={classes.link}>
-                View All
-              </Link>
+              <h2 className={classes.heading}>Trending Items</h2>
             </div>
           </div>
           <div className={classes.mainCard}>
@@ -286,11 +316,8 @@ function TopCard() {
             </Link>
           </div>
         </div>
-        <div className="col-md-6">
-          <div className="d-flex justify-content-start">
-            <div>
-              <h2 className={classes.headingRecently}>Recently Added</h2>
-            </div>
+        <div className="col-md-4">
+          <div className="d-flex justify-content-end">
             <div className={classes.viewAllRecent}>
               <Link to="/market/recent" className={classes.link}>
                 View All
@@ -298,36 +325,44 @@ function TopCard() {
             </div>
           </div>
           <div className={classes.mainCard}>
-            <Link to="/item-detail" className={classes.link}>
-              <div className={classes.nftCard1}>
-                <div className={classes.bgImage2}>
-                  <FavoriteBorderIcon />
+            <div>
+              <div className={classes.nftCardRight}>
+                <div className="d-flex justify-content-start">
+                  <div className={classes.bgImageRight}></div>
+                  <div className={classes.textBoxRight}>
+                    <Link to="/market/profile" className={classes.link}>
+                      <h6 className={classes.cardTextRight}>
+                        <strong>Fortnite Battle Royal</strong>
+                      </h6>
+                    </Link>
+                    <h6 className={classes.cardTextRIght}>Online Game</h6>
+                  </div>
+                  <div>
+                    <Button className={classes.normalButtonRight}>
+                      Follow
+                    </Button>
+                    <FavoriteBorderIcon
+                      style={{ paddingLeft: 10, fontSize: 30 }}
+                    />
+                  </div>
                 </div>
-                <div className={classes.textBox}>
-                  <h6 className={classes.cardText}>Tommy Kill Hell</h6>
-                  <h6>
-                    <strong>Carry Minati</strong>
-                  </h6>
-                </div>
-                <div className={classes.nftCardButton1}>
-                  <Button className={classes.normalButton1}>Follow</Button>
-                </div>
-              </div>
-            </Link>
-            <Link to="/item-detail" className={classes.link}>
-              <div className={classes.nftCard2}>
-                <div className={classes.bgImage3}>
-                  <FavoriteBorderIcon />
-                  <div className={classes.nftCardButton2}>
-                    <Button className={classes.normalButton}>Follow</Button>
+                <div>
+                  <div className={classes.innerCard}>
+                    <div className={classes.textBoxRight1}>
+                      <StarBorderIcon />
+                      The Create Network
+                      <StarBorderIcon /> Auction Ending Time
+                      <StarBorderIcon /> Place a bid
+                    </div>
                   </div>
                 </div>
               </div>
-            </Link>
+            </div>
           </div>
         </div>
       </div>
     </div>
   );
 }
-export default TopCard;
+
+export default TrendingItems;
