@@ -5,9 +5,10 @@ import CustomMenu from "../common/CustomMenu";
 const useStyles = makeStyles((theme) => ({
   background: {
     color: theme.palette.market.textPrimary,
-    padding: 30,
+    padding: 20,
     width: "100%",
   },
+
   headingTop: {
     color: theme.palette.pbr.textPrimary,
     fontSize: 20,
@@ -80,12 +81,12 @@ const useStyles = makeStyles((theme) => ({
   },
   auctionCard: {
     backgroundColor: "#15134A",
-    width: 300,
+    width: 260,
     height: 350,
-    padding: 10,
+    padding: 5,
     marginRight: 10,
     marginLeft: 10,
-    marginBottom: 20,
+    marginBottom: 10,
     borderRadius: 10,
     display: "flex",
     justifyContent: "center",
@@ -129,96 +130,77 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function Category() {
+  //Single card code should be optimised and make a reusable component
   const classes = useStyles();
   return (
     <div className={classes.background}>
-      <div>
-        <div className="row">
-          <div className="col-md-12">
-            <div className={classes.cardWrapper}>
-              <div className={classes.mainCard}>
-                <div>
-                  <div className={classes.auctionCard}>
-                    <div className="d-flex justify-content-start">
-                      <div className={classes.bgImage}>
-                        <div className={classes.textBox}>
-                          <h6 className={classes.cardText}>
-                            <strong>Dragon of Wonder Request</strong>
-                          </h6>
-                          <h6 className={classes.subHeading}>
-                            <strong>Highest Bid 1/1</strong>
-                          </h6>
-                          <h6 className={classes.subHeading}>
-                            <strong>Ether</strong>
-                          </h6>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+      <div className={classes.cardWrapper}>
+        <div className={classes.mainCard}>
+          <div className={classes.auctionCard}>
+            <div className={classes.bgImage}>
+              <div className={classes.textBox}>
+                <h6 className={classes.cardText}>
+                  <strong>Dragon of Wonder Request</strong>
+                </h6>
+                <h6 className={classes.subHeading}>
+                  <strong>Highest Bid 1/1</strong>
+                </h6>
+                <h6 className={classes.subHeading}>
+                  <strong>Ether</strong>
+                </h6>
               </div>
-              <div className={classes.mainCard}>
-                <div>
-                  <div className={classes.auctionCard}>
-                    <div className="d-flex justify-content-start">
-                      <div className={classes.bgImage}>
-                        <div className={classes.textBox}>
-                          <h6 className={classes.cardText}>
-                            <strong>Dragon of Wonder Request</strong>
-                          </h6>
-                          <h6 className={classes.subHeading}>
-                            <strong>Highest Bid 1/1</strong>
-                          </h6>
-                          <h6 className={classes.subHeading}>
-                            <strong>Ether</strong>
-                          </h6>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+            </div>
+          </div>
+        </div>
+        <div className={classes.mainCard}>
+          <div className={classes.auctionCard}>
+            <div className={classes.bgImage}>
+              <div className={classes.textBox}>
+                <h6 className={classes.cardText}>
+                  <strong>Dragon of Wonder Request</strong>
+                </h6>
+                <h6 className={classes.subHeading}>
+                  <strong>Highest Bid 1/1</strong>
+                </h6>
+                <h6 className={classes.subHeading}>
+                  <strong>Ether</strong>
+                </h6>
               </div>
-              <div className={classes.mainCard}>
-                <div>
-                  <div className={classes.auctionCard}>
-                    <div className="d-flex justify-content-start">
-                      <div className={classes.bgImage}>
-                        <div className={classes.textBox}>
-                          <h6 className={classes.cardText}>
-                            <strong>Dragon of Wonder Request</strong>
-                          </h6>
-                          <h6 className={classes.subHeading}>
-                            <strong>Highest Bid 1/1</strong>
-                          </h6>
-                          <h6 className={classes.subHeading}>
-                            <strong>Ether</strong>
-                          </h6>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+            </div>
+          </div>
+        </div>
+
+        <div className={classes.mainCard}>
+          <div className={classes.auctionCard}>
+            <div className={classes.bgImage}>
+              <div className={classes.textBox}>
+                <h6 className={classes.cardText}>
+                  <strong>Dragon of Wonder Request</strong>
+                </h6>
+                <h6 className={classes.subHeading}>
+                  <strong>Highest Bid 1/1</strong>
+                </h6>
+                <h6 className={classes.subHeading}>
+                  <strong>Ether</strong>
+                </h6>
               </div>
-              <div className={classes.mainCard}>
-                <div>
-                  <div className={classes.auctionCard}>
-                    <div className="d-flex justify-content-start">
-                      <div className={classes.bgImage}>
-                        <div className={classes.textBox}>
-                          <h6 className={classes.cardText}>
-                            <strong>Dragon of Wonder Request</strong>
-                          </h6>
-                          <h6 className={classes.subHeading}>
-                            <strong>Highest Bid 1/1</strong>
-                          </h6>
-                          <h6 className={classes.subHeading}>
-                            <strong>Ether</strong>
-                          </h6>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+            </div>
+          </div>
+        </div>
+
+        <div className={classes.mainCard}>
+          <div className={classes.auctionCard}>
+            <div className={classes.bgImage}>
+              <div className={classes.textBox}>
+                <h6 className={classes.cardText}>
+                  <strong>Dragon of Wonder Request</strong>
+                </h6>
+                <h6 className={classes.subHeading}>
+                  <strong>Highest Bid 1/1</strong>
+                </h6>
+                <h6 className={classes.subHeading}>
+                  <strong>Ether</strong>
+                </h6>
               </div>
             </div>
           </div>

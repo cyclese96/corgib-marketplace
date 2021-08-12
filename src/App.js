@@ -17,10 +17,12 @@ export default function App() {
       <Router>
         <ThemeProvider theme={theme}>
           <div className="row g-0">
-            {/* <div className="col-md-2">
+            <div className="col-md-2">
               <LeftBar />
-            </div> */}
-            <div className="col-md-12">
+              {/* Clean your leftbar code according to design */}
+            </div>
+            <div className="col-md-10">
+              {/* {Paste your appbar here}? */}
               <Switch>
                 <Route exact path="/">
                   <Marketplace />

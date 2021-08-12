@@ -235,82 +235,67 @@ function Appbar() {
   const classes = useStyles();
   return (
     <div className={classes.background}>
-      <div className={classes.mainCard}>
-        <div className="row container">
-          <div className="col-md-2">
-            <div className={classes.sectionCard1}>
-              <div className="d-flex-column justify-content-start">
-                <div className="text-center">
-                  <div className={classes.title}>
-                    <Link to="/">
-                      <div className="justify-content-start align-items-center">
-                        <div style={{ paddingTop: 5, paddingBottom: 5 }}>
-                          <img src="/corgi.png" alt="logo" height="55px" />{" "}
-                        </div>{" "}
-                        <div className={classes.logo}>
-                          Corgib{" "}
-                          <span className={classes.highlight}>MarketPlace</span>
-                        </div>
-                        <div className="d-flex-column justify-content-end align-items-center">
-                          <Link to={"/market"}>
-                            <Typography
-                              className={classes.tabs}
-                              variant="body1"
-                              noWrap
-                              style={{ paddingBottom: 20 }}
-                            >
-                              Explore
-                            </Typography>
-                          </Link>
+      <div className={classes.title}>
+        <Link to="/">
+          <div className="justify-content-start align-items-center">
+            <div style={{ paddingTop: 5, paddingBottom: 5 }}>
+              <img src="/corgi.png" alt="logo" height="55px" />{" "}
+            </div>{" "}
+            <div className={classes.logo}>
+              Corgib <span className={classes.highlight}>MarketPlace</span>
+            </div>
+            <div className="d-flex justify-content-between align-items-center">
+              <Link to={"/market"}>
+                <Typography
+                  className={classes.tabs}
+                  variant="body1"
+                  noWrap
+                  style={{ paddingBottom: 20 }}
+                >
+                  Explore
+                </Typography>
+              </Link>
 
-                          <Link to={"/market/profile"}>
-                            <Typography
-                              className={classes.tabs}
-                              variant="body1"
-                              style={{ paddingBottom: 20 }}
-                            >
-                              Activities
-                            </Typography>
-                          </Link>
-                          <Link to={"/market/profile"}>
-                            <Typography
-                              className={classes.tabs}
-                              variant="body1"
-                              style={{ paddingBottom: 20 }}
-                            >
-                              Profile
-                            </Typography>
-                          </Link>
+              <Link to={"/market/profile"}>
+                <Typography
+                  className={classes.tabs}
+                  variant="body1"
+                  style={{ paddingBottom: 20 }}
+                >
+                  Activities
+                </Typography>
+              </Link>
+              <Link to={"/market/profile"}>
+                <Typography
+                  className={classes.tabs}
+                  variant="body1"
+                  style={{ paddingBottom: 20 }}
+                >
+                  Profile
+                </Typography>
+              </Link>
 
-                          <div className={classes.sectionDesktop}>
-                            <div style={{ paddingTop: 20 }}>
-                              {" "}
-                              <div className="text-center">
-                                <Button className={classes.normalButton}>
-                                  Connect Wallet
-                                </Button>
-                              </div>
-                            </div>
-                          </div>
-                          <div className={classes.sectionDesktop}>
-                            <div style={{ paddingTop: 20 }}>
-                              {" "}
-                              <div className="text-center">
-                                <Button className={classes.normalButton}>
-                                  Cerate NFT
-                                </Button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </Link>
+              <div className={classes.sectionDesktop}>
+                <div style={{ paddingTop: 20 }}>
+                  {" "}
+                  <div className="text-center">
+                    <Button className={classes.normalButton}>
+                      Connect Wallet
+                    </Button>
                   </div>
-                </div>{" "}
+                </div>
+              </div>
+              <div className={classes.sectionDesktop}>
+                <div style={{ paddingTop: 20 }}>
+                  {" "}
+                  <div className="text-center">
+                    <Button className={classes.normalButton}>Cerate NFT</Button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        </Link>
       </div>
     </div>
   );

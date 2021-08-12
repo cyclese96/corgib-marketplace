@@ -22,19 +22,28 @@ function Marketplace() {
 
   return (
     <div className={classes.background}>
-      <section>
-        <div className="col-md-12">
-          <div className="d-flex-column justify-content-center">
-            <TopCard />
-            <ItemsSection />
-            <TopArtist />
-            <TrendingItems />
-            <FilterTab />
-            <Category />
-            <Footer />
-          </div>
+      <div>
+        <div>
+          <TopCard />
         </div>
-      </section>
+        <div>
+          <ItemsSection />
+        </div>
+        <div className="mt-3">
+          <TopArtist />
+        </div>
+        <div className="mt-3">
+          <TrendingItems />
+        </div>
+
+        {/* Category tabs and their items moved into one file and create a seperate component for single item */}
+        <div className="mt-3">
+          <FilterTab />
+          <Category />
+        </div>
+
+        <Footer />
+      </div>
     </div>
   );
 }

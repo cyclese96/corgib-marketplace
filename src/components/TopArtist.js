@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const useStyles = makeStyles((theme) => ({
   background: {
     color: theme.palette.market.textPrimary,
-    padding: 30,
+    padding: 20,
     width: "100%",
   },
 
@@ -235,40 +235,6 @@ function TopArtist() {
                     <Link to="/market/profile" className={classes.link}>
                       <h6 className={classes.cardText}>
                         <strong>Carry Minati</strong>
-                      </h6>
-                    </Link>
-                    <h6 className={classes.cardText}>232 Items</h6>
-                  </div>
-                </div>
-                <div>
-                  <Button className={classes.normalButton}>Follow</Button>
-                </div>
-              </div>
-            </div>
-            <div>
-              <div className={classes.nftCard}>
-                <div className="d-flex justify-content-start">
-                  <div className={classes.bgImage}></div>
-                  <div className={classes.textBox}>
-                    <Link to="/market/profile" className={classes.link}>
-                      <h6 className={classes.cardText}>
-                        <strong>Carry Minati</strong>
-                      </h6>
-                    </Link>
-                    <h6 className={classes.cardText}>23 Items</h6>
-                  </div>
-                </div>
-                <div>
-                  <Button className={classes.normalButton}>Follow</Button>
-                </div>
-              </div>
-              <div className={classes.nftCard}>
-                <div className="d-flex justify-content-start">
-                  <div className={classes.bgImage}></div>
-                  <div className={classes.textBox}>
-                    <Link to="/market/profile" className={classes.link}>
-                      <h6 className={classes.cardText}>
-                        <strong>Denii Lie</strong>
                       </h6>
                     </Link>
                     <h6 className={classes.cardText}>232 Items</h6>
