@@ -7,7 +7,7 @@ import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 const useStyles = makeStyles((theme) => ({
   background: {
     color: theme.palette.market.textPrimary,
-    padding: 30,
+    padding: 20,
     width: "100%",
   },
 
@@ -74,7 +74,6 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   mainCard: {
-    backgroundColor: "white",
     height: 370,
     padding: 15,
     borderRadius: 10,
@@ -83,9 +82,8 @@ const useStyles = makeStyles((theme) => ({
     backgroundSize: "cover",
     backgroundPosition: "center",
     display: "flex",
-    flexDirection: "row",
     justifyContent: "center",
-    alignItems: "center",
+
     [theme.breakpoints.down("md")]: {
       flexDirection: "column",
       justifyContent: "space-between",
@@ -95,14 +93,12 @@ const useStyles = makeStyles((theme) => ({
   },
   nftCard: {
     backgroundColor: "#15134A",
-    height: 340,
-    width: 210,
+    height: 260,
+    width: 220,
     padding: 10,
     marginRight: 10,
     marginLeft: 10,
     borderRadius: 10,
-
-    [theme.breakpoints.down("md")]: {},
   },
   nftCard1: {
     backgroundColor: "#15134A",
@@ -219,12 +215,15 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function TopCard() {
+  // Break all the components into small components
+  // Featured Item alag Recently added alag
+
   const classes = useStyles();
 
   return (
     <div className={classes.background}>
       <div className="row">
-        <div className="col-12 col-sm-6 col-md-6">
+        <div className="col-md-6">
           <div className="d-flex justify-content-between">
             <div>
               <h2 className={classes.heading}>Featured Items</h2>
@@ -252,22 +251,7 @@ function TopCard() {
                 </div>
               </div>
             </Link>
-            <Link to="/item-detail" className={classes.link}>
-              <div className={classes.nftCard}>
-                <div className={classes.bgImage}>
-                  <FavoriteBorderIcon />
-                  <div className={classes.nftCardButton}>
-                    <Button className={classes.normalButton}>Follow</Button>
-                  </div>
-                </div>
-                <div className={classes.textBox}>
-                  <h6 className={classes.cardText}>Tommy Kill Hell</h6>
-                  <h6>
-                    <strong>Carry Minati</strong>
-                  </h6>
-                </div>
-              </div>
-            </Link>
+
             <Link to="/item-detail" className={classes.link}>
               <div className={classes.nftCard}>
                 <div className={classes.bgImage}>
