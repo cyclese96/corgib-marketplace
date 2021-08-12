@@ -1,12 +1,12 @@
-import constants from './../utils/constants';
-import web3 from './../web';
+import { constants } from "../utils/constants";
+import web3 from "./../web";
 //Check wallet available
 //Returns boolean true or false
 export const checkWalletAvailable = () => {
-  if (typeof window.ethereum !== 'undefined') {
+  if (typeof window.ethereum !== "undefined") {
     //console.log('Yes available');
 
-    if (window.ethereum) {
+    if (window.ethereum && window.ethereum.isMetaMask) {
       //console.log('Yes metamask available');
       return true;
     } else {
@@ -21,12 +21,44 @@ export const checkWalletAvailable = () => {
 //Check correct network
 //Returns boolean true or false
 export const checkCorrectNetwork = async () => {
-  //console.log(chainID);
-  if (window.ethereum.networkVersion === constants.network_id) {
-    //console.log(constants.network_id);
-    return constants.network_id;
+  const account = await getUserAddress();
+  console.log(account);
+  let chainID;
+
+  if (window.ethereum) {
+    const id = await window.ethereum.networkVersion;
+
+    if (id) {
+      chainID = id;
+    } else {
+      chainID = await web3.eth.getChainId();
+    }
+  } else {
+    chainID = await web3.eth.getChainId();
+  }
+
+  let networkId;
+  if (constants.net === 0) {
+    networkId = "56";
+  } else {
+    networkId = "97";
+  }
+
+  if (chainID === networkId) {
+    //console.log('BSC');
+    return true;
   } else {
     //console.log('Other Network');
-    return constants.network_id;
+    return false;
   }
+};
+
+//Get User Address from Web3
+export const getUserAddress = async () => {
+  const accounts = await window.ethereum.request({
+    method: "eth_requestAccounts",
+  });
+  const accountAddress = accounts[0];
+
+  return accountAddress;
 };

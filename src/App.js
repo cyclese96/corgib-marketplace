@@ -10,6 +10,7 @@ import Marketplace from "./pages/MarketPlace/Marketplace";
 import ItemDetails from "./pages/MarketPlace/details/ItemDetails";
 import Profile from "./pages/Profile/Profile";
 import LeftBar from "./common/LeftBar";
+import "./web";
 
 export default function App() {
   return (
@@ -20,6 +21,7 @@ export default function App() {
             {/* <div className="col-md-2">
               <LeftBar />
             </div> */}
+            <Appbar />
             <div className="col-md-12">
               <Switch>
                 <Route exact path="/">

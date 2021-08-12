@@ -1,30 +1,43 @@
-import constants from './../utils/constants';
-import web3 from './../web';
-import { GET_CURRENT_USER, REMOVE_CURRENT_USER, TRANSACTION_HIT } from './types';
+import { getUserAddress } from "./web3Actions";
+import { GET_CURRENT_USER, REMOVE_CURRENT_USER } from "./types";
 
-//User authenticate
-export const authenticateUser = (address) => (dispatch) => {
+//GET user authenticated
+export const authenticateUser = () => async (dispatch) => {
+  let user = localStorage.getItem("userAddress");
+  let userAddress = await getUserAddress();
+  console.log("3. authenticating a new user");
+  if (!user) {
+    console.log("4. Address Not Available");
+    localStorage.setItem("userAddress", userAddress);
+  }
   dispatch({
     type: GET_CURRENT_USER,
-    payload: address,
+    payload: userAddress,
   });
-
-  localStorage.setItem('userAddress', address);
+  return true;
 };
 
+//GET user authenticated
+export const checkAuthenticated = () => async (dispatch) => {
+  let user = localStorage.getItem("userAddress");
+  let userAddress = await getUserAddress();
+
+  if (user) {
+    dispatch({
+      type: GET_CURRENT_USER,
+      payload: userAddress,
+    });
+    return true;
+  } else {
+    console.log("0. Address not in LocalStorage.");
+    return false;
+  }
+};
 //User signout
-export const signOutUser = () => (dispatch) => {
+export const signOutUser = (address) => (dispatch) => {
   dispatch({
     type: REMOVE_CURRENT_USER,
-    payload: 'remove',
+    payload: address,
   });
-  localStorage.removeItem('userAddress');
-};
-
-//Transaction Changes
-export const transactionHit = () => (dispatch) => {
-  dispatch({
-    type: TRANSACTION_HIT,
-    payload: 'hit',
-  });
+  localStorage.removeItem("userAddress");
 };

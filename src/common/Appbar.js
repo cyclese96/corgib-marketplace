@@ -1,24 +1,61 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Button, Tabs } from "@material-ui/core";
+import {
+  AppBar,
+  Backdrop,
+  Button,
+  Dialog,
+  getContrastRatio,
+  Tabs,
+  Toolbar,
+} from "@material-ui/core";
 import { Link } from "react-router-dom";
 import Typography from "@material-ui/core/Typography";
+import web3 from "./../web";
+import {
+  checkCorrectNetwork,
+  checkWalletAvailable,
+  getUserAddress,
+} from "../actions/web3Actions";
+import {
+  authenticateUser,
+  checkAuthenticated,
+  signOutUser,
+} from "./../actions/authActions";
+import { getCorgibBalance } from "../utils/contractMethods";
+import AppbarTab from "./AppbarTab";
+import { connect } from "react-redux";
+import propTypes from "prop-types";
+import MuiAlert from "@material-ui/lab/Alert";
+import { AccountBalanceWallet, Close } from "@material-ui/icons";
+import BalancePopup from "./BalancePopup";
 
 const useStyles = makeStyles((theme) => ({
   background: {
     backgroundColor: theme.palette.market.primary,
-    color: theme.palette.market.textPrimary,
-    minHeight: "50vh",
-    paddingLeft: 30,
-    paddingRight: 30,
-    width: "100%",
+    boxShadow: "none",
+    height: 70,
   },
   logo: {
     fontWeight: 600,
     color: theme.palette.market.textPrimary,
-    fontSize: 18,
+    fontSize: 20,
     letterSpacing: "-1px",
     paddingTop: 5,
+  },
+  grow: {
+    flexGrow: 1,
+  },
+  menuButton: {
+    marginRight: theme.spacing(2),
+  },
+  title: {
+    display: "block",
+    color: "#e65100",
+    fontSize: 18,
+    [theme.breakpoints.down("md")]: {
+      display: "none",
+    },
   },
   tabs: {
     color: theme.palette.market.textPrimary,
@@ -34,286 +71,318 @@ const useStyles = makeStyles((theme) => ({
       display: "none",
     },
   },
+
+  inputRoot: {
+    color: "inherit",
+  },
+
+  sectionDesktop: {
+    display: "none",
+    [theme.breakpoints.up("md")]: {
+      display: "flex",
+    },
+  },
+  sectionMobile: {
+    width: "100vw",
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    [theme.breakpoints.up("md")]: {
+      display: "none",
+    },
+    backgroundColor: "transparent",
+  },
+  menuIcon: {
+    color: "#e5e5e5",
+
+    marginTop: 10,
+  },
+  list: {
+    width: "250px",
+    borderLeft: "5px solid pink",
+    borderColor: theme.palette.pbr.primary,
+    height: "100%",
+    backgroundColor: "transparent",
+  },
+  fullList: {
+    width: "auto",
+  },
+  menuTitle: {
+    paddingLeft: 25,
+    fontWeight: 500,
+    verticalAlign: "baseline",
+    letterSpacing: "-0.8px",
+    textAlign: "left",
+    fontSize: 16,
+  },
+  menuTitlePink: {
+    paddingLeft: 25,
+    fontWeight: 500,
+    verticalAlign: "baseline",
+    letterSpacing: "-0.8px",
+    textAlign: "left",
+    fontSize: 16,
+    color: theme.palette.pbr.primary,
+  },
+  mobileLink: {
+    color: theme.palette.pbr.textSecondary,
+    textDecoration: "none",
+  },
+  mobileButton: {
+    borderRadius: "50px",
+    background: `linear-gradient(to bottom,#D9047C, #BF1088)`,
+    lineHeight: "24px",
+    verticalAlign: "baseline",
+    letterSpacing: "-0.8px",
+    margin: 0,
+    color: "#ffffff",
+    padding: "5px 15px 5px 15px",
+    fontWeight: 600,
+  },
+  buttonOutlined: {
+    borderRadius: "10px",
+    border: "1px solid #000000",
+    background: "#ffffff",
+    lineHeight: "24px",
+    verticalAlign: "baseline",
+    letterSpacing: "-1px",
+    margin: 0,
+    marginTop: 5,
+    color: "#000000",
+    padding: "12px 16px 12px 16px",
+    fontWeight: 500,
+    fontSize: "1.1vw",
+  },
   highlight: {
     color: theme.palette.pbr.primary,
   },
-
-  heading: {
-    color: theme.palette.pbr.textPrimary,
-    fontSize: 20,
-    fontWeight: 600,
-    letterSpacing: "-0.1px",
-    verticalAlign: "middle",
-    wordSpacing: "0px",
-    paddingBottom: 5,
-    [theme.breakpoints.down("md")]: {
-      fontSize: 18,
-    },
-  },
-  para: {
-    color: theme.palette.market.textPrimary,
-    fontWeight: 400,
-    verticalAlign: "baseline",
-    letterSpacing: "-0.8px",
-
-    paddingBottom: 20,
-    fontSize: 14,
-    [theme.breakpoints.down("md")]: {
-      fontSize: 13,
-    },
-  },
-  textContainer: {
-    padding: 20,
-  },
-  actionButton: {
-    color: "white",
-    textTransform: "none",
-    borderRadius: "12px",
-    padding: "8px 16px 8px 16px",
-    fontWeight: 500,
-    marginRight: 12,
-    background: `linear-gradient(to right,#7b1fa2, #4a148c)`,
-    fontSize: 14,
-    filter: `drop-shadow(0 0 0.1rem #4a148c)`,
-  },
   normalButton: {
-    color: "white",
+    color: "#f9f9f9",
     textTransform: "none",
     borderRadius: "12px",
     padding: "8px 16px 8px 16px",
     fontWeight: 500,
     background: `linear-gradient(to right,#3f51b5, #1a237e)`,
+    border: "1px solid #bdbdbd",
     fontSize: 14,
     filter: `drop-shadow(0 0 0.1rem #1a237e)`,
   },
-  viewAll: {
-    color: theme.palette.market.textPrimary,
-    fontWeight: 400,
-    verticalAlign: "baseline",
-    letterSpacing: "-0.8px",
-    width: 400,
-    paddingBottom: 20,
-    fontSize: 16,
-    textAlign: "right",
-    [theme.breakpoints.down("md")]: {
-      fontSize: 14,
-    },
-  },
-  mainCard: {
-    backgroundColor: "white",
-    height: "100%",
-    borderRadius: 10,
-    width: "100%",
-    background: `linear-gradient(to right,#1C1656, #1C1656)`,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "flex-start",
-    alignItems: "flex-start",
-    [theme.breakpoints.down("md")]: {
-      flexDirection: "column",
-      justifyContent: "start",
-      height: "100%",
-    },
-  },
-  sectionCard1: {
-    backgroundColor: "#15134A",
-    marginTop: 20,
-    height: "100%",
-    width: "100%",
-    marginRight: 10,
-    marginLeft: 10,
-    marginBottom: 20,
-    borderRadius: 10,
-  },
-  sectionCard2: {
-    marginTop: 20,
-    // backgroundColor: '#15134A',
-    width: "100%",
-    padding: 10,
-    marginRight: 10,
-    marginLeft: 10,
-    marginBottom: 20,
-    borderRadius: 10,
-    display: "flex",
-    justifyContent: "flex-start",
-  },
-  profileImage: {
-    backgroundImage: `url('https://c4.wallpaperflare.com/wallpaper/629/360/993/moneyheist-lacasadepapel-spain-the-professor-hd-wallpaper-thumb.jpg')`,
-    backgroundPosition: "center",
-    backgroundSize: "cover",
-    padding: 10,
-    height: 120,
-    width: 120,
-    borderRadius: "45%",
-    marginBottom: 20,
-  },
-
-  textBox: {
-    textAlign: "center",
-  },
-  textBoxMain: {
-    textAlign: "center",
-    paddingTop: 10,
-  },
-  cardText: {
-    color: theme.palette.market.textPrimary,
-    fontWeight: 500,
-    verticalAlign: "baseline",
-    letterSpacing: "-0.8px",
-    paddingBottom: 0,
-    fontSize: 16,
-    textAlign: "center",
-
-    [theme.breakpoints.down("md")]: {
-      fontSize: 14,
-    },
-  },
-  address: {
-    color: theme.palette.market.textPrimary,
-    fontWeight: 400,
-    verticalAlign: "baseline",
-    letterSpacing: "-0.8px",
-    paddingBottom: 0,
-    fontSize: 13,
-    textAlign: "center",
-
-    [theme.breakpoints.down("md")]: {
-      fontSize: 12,
-    },
-  },
-  cover: {
-    zIndex: 0,
-    height: 240,
-    width: "100%",
-    borderTopLeftRadius: 10,
-    borderTopRightRadius: 10,
-    background: `linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(3, 3, 3, 0.3) ),url("https://blog.bitpanda.com/content/images/2021/03/what_is_nft_en.png")`,
-    backgroundPosition: "center",
-    backgroundSize: "cover",
-    filter: `drop-shadow(0 0 0.9rem #1a237e)`,
-  },
-
-  nftCard: {
-    backgroundColor: "#15134A",
-    height: "100%",
-    width: 300,
-    padding: 10,
-    marginRight: 10,
-    marginLeft: 10,
-    borderRadius: 10,
-
-    filter: `drop-shadow(0 0 0.1rem #4a148c)`,
-    [theme.breakpoints.down("md")]: {
-      width: 240,
-      height: 240,
-      marginBottom: 10,
-    },
-  },
-  bgImage: {
-    backgroundImage: `url('https://i1.sndcdn.com/avatars-000298736131-6gygpv-t500x500.jpg')`,
-    backgroundPosition: "center",
-    backgroundSize: "cover",
-    padding: 10,
-    height: 250,
-    borderRadius: 10,
-  },
-  iconWrapper: {
-    color: "white",
-    display: "flex",
-    justifyContent: "space-around",
-    alignItems: "center",
-  },
-  icons: {
-    "&:hover": {
-      color: "#1EAE98",
-    },
-  },
 }));
-function Appbar() {
+
+function Alert(props) {
+  return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
+
+function Appbar({
+  authenticateUser,
+  authenticated,
+  signOutUser,
+  checkAuthenticated,
+}) {
   const classes = useStyles();
+
+  const [bnbBal, setBnbBal] = useState(0);
+  const [corgibBal, setCorgibBal] = useState(10);
+  const [userAdd, setUserAdd] = useState(null);
+  const [popup, setPopup] = useState(false);
+
+  const [alert, setAlert] = React.useState({ status: false, message: "" });
+
+  const signOut = (currentAddress) => {
+    signOutUser(currentAddress);
+    setPopup(false);
+  };
+
+  const togglePopup = (value) => {
+    setPopup(value);
+  };
+
+  useEffect(() => {
+    async function asyncFn() {
+      let walletStatus = await checkWalletAvailable();
+      if (walletStatus) {
+        const networkStatus = await checkCorrectNetwork();
+
+        if (networkStatus) {
+          let authStatus = await checkAuthenticated();
+
+          if (authStatus) {
+            let userAddress = await getUserAddress();
+            setUserAdd(userAddress);
+            getBalance();
+          } else {
+          }
+        } else {
+          setAlert({ status: true, message: "Only support BSC network" });
+        }
+      } else {
+        setAlert({ status: true, message: "Install metamask first!" });
+      }
+    }
+
+    asyncFn();
+  }, [checkAuthenticated]);
+
+  const getBalance = async () => {
+    let currentAddress = await getUserAddress();
+    let balance = await web3.eth.getBalance(currentAddress);
+
+    let bnbBalance = web3.utils.fromWei(balance ? balance.toString() : "0");
+    setBnbBal(bnbBalance);
+
+    let corgibBalance = await getCorgibBalance(currentAddress);
+    let corgibInEth = web3.utils.fromWei(corgibBalance.toString(), "ether");
+    setCorgibBal(corgibInEth);
+  };
+
+  const connectWallet = async () => {
+    let walletStatus = await checkWalletAvailable();
+    if (walletStatus) {
+      const networkStatus = await checkCorrectNetwork();
+      if (networkStatus) {
+        authenticateUser();
+        getBalance();
+      } else {
+        // setAlert({ status: true, message: "Only support BSC network" });
+      }
+    } else {
+      // setAlert({ status: true, message: "Install metamask first!" });
+    }
+  };
+
+  useEffect(() => {
+    async function asyncFn() {
+      //Events to detect changes in account or network.
+      if (window.ethereum !== undefined) {
+        window.ethereum.on("accountsChanged", async function (accounts) {
+          authenticateUser();
+          window.location.reload();
+        });
+
+        window.ethereum.on("networkChanged", async function (networkId) {
+          let networkStatus = await checkCorrectNetwork();
+          if (networkStatus) {
+            authenticateUser();
+            getBalance();
+          } else {
+            setAlert({ status: true, message: "Only support BSC network" });
+            signOut(userAdd);
+          }
+        });
+      }
+    }
+    asyncFn();
+  }, []);
+
   return (
-    <div className={classes.background}>
-      <div className={classes.mainCard}>
-        <div className="row container">
-          <div className="col-md-2">
-            <div className={classes.sectionCard1}>
-              <div className="d-flex-column justify-content-start">
-                <div className="text-center">
-                  <div className={classes.title}>
-                    <Link to="/">
-                      <div className="justify-content-start align-items-center">
-                        <div style={{ paddingTop: 5, paddingBottom: 5 }}>
-                          <img src="/corgi.png" alt="logo" height="55px" />{" "}
-                        </div>{" "}
-                        <div className={classes.logo}>
-                          Corgib{" "}
-                          <span className={classes.highlight}>MarketPlace</span>
-                        </div>
-                        <div className="d-flex-column justify-content-end align-items-center">
-                          <Link to={"/market"}>
-                            <Typography
-                              className={classes.tabs}
-                              variant="body1"
-                              noWrap
-                              style={{ paddingBottom: 20 }}
-                            >
-                              Explore
-                            </Typography>
-                          </Link>
-
-                          <Link to={"/market/profile"}>
-                            <Typography
-                              className={classes.tabs}
-                              variant="body1"
-                              style={{ paddingBottom: 20 }}
-                            >
-                              Activities
-                            </Typography>
-                          </Link>
-                          <Link to={"/market/profile"}>
-                            <Typography
-                              className={classes.tabs}
-                              variant="body1"
-                              style={{ paddingBottom: 20 }}
-                            >
-                              Profile
-                            </Typography>
-                          </Link>
-
-                          <div className={classes.sectionDesktop}>
-                            <div style={{ paddingTop: 20 }}>
-                              {" "}
-                              <div className="text-center">
-                                <Button className={classes.normalButton}>
-                                  Connect Wallet
-                                </Button>
-                              </div>
-                            </div>
-                          </div>
-                          <div className={classes.sectionDesktop}>
-                            <div style={{ paddingTop: 20 }}>
-                              {" "}
-                              <div className="text-center">
-                                <Button className={classes.normalButton}>
-                                  Cerate NFT
-                                </Button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </Link>
-                  </div>
+    <div className={classes.grow}>
+      <AppBar position="static" className={classes.background}>
+        <Toolbar className="d-flex justify-content-between ">
+          <div className={classes.title}>
+            <Link to="/">
+              <div className="d-flex flex-row  justify-content-start align-items-center">
+                <div style={{ paddingTop: 5 }}>
+                  <img src="/corgi.png" alt="logo" height="55px" />{" "}
                 </div>{" "}
+                <div className={classes.logo}>
+                  Corgib <span className={classes.highlight}>MarketPlace</span>
+                </div>
               </div>
+            </Link>
+          </div>
+          <div className="d-flex justify-content-center align-items-center">
+            <AppbarTab />
+          </div>
+          <div className="d-flex justify-content-center align-items-center">
+            <div className={classes.sectionDesktop}>
+              {authenticated ? (
+                <div>
+                  <Button
+                    className={classes.balanceButton}
+                    onClick={() => togglePopup(true)}
+                  >
+                    <div className={classes.buttonIcon}>
+                      <AccountBalanceWallet className={classes.icon} />
+                    </div>
+                    <div>
+                      <strong style={{ color: "#e5e5e5" }}>
+                        {bnbBal !== null &&
+                          parseFloat(bnbBal).toFixed(3) + " BNB"}{" "}
+                      </strong>
+                    </div>
+                  </Button>
+                </div>
+              ) : (
+                <div>
+                  <Button
+                    className={classes.normalButton}
+                    onClick={connectWallet}
+                  >
+                    {web3 !== undefined
+                      ? "Connect your wallet"
+                      : "Missing Metamask!"}
+                  </Button>
+                </div>
+              )}
             </div>
           </div>
-        </div>
-      </div>
+          <div className={classes.sectionMobile}>
+            <div className="d-flex flex-row  justify-content-start align-items-center">
+              <div style={{ paddingTop: 5 }}>
+                <img src="/corgi.png" alt="logo" height="55px" />{" "}
+              </div>{" "}
+              <div
+                style={{
+                  fontWeight: 600,
+                  color: "#e5e5e5",
+                  fontSize: 20,
+                  letterSpacing: "-1px",
+                  paddingTop: 5,
+                }}
+              >
+                Corgib <span className={classes.highlight}>MarketPlace</span>
+              </div>
+            </div>
+
+            <Dialog
+              className={classes.modal}
+              open={popup}
+              keepMounted
+              onClose={() => togglePopup(false)}
+              closeAfterTransition
+              BackdropComponent={Backdrop}
+              BackdropProps={{
+                timeout: 500,
+              }}
+            >
+              <div style={{ backgroundColor: "black" }}>
+                <BalancePopup
+                  address={userAdd}
+                  corgib={corgibBal}
+                  togglePopup={() => togglePopup(false)}
+                  signOut={() => signOut(userAdd)}
+                />
+              </div>
+            </Dialog>
+          </div>
+        </Toolbar>
+      </AppBar>
     </div>
   );
 }
 
-export default Appbar;
+Appbar.propTypes = {
+  authenticateUser: propTypes.func.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  authenticated: state.auth.authenticated,
+});
+
+const mapDispatchToProps = {
+  authenticateUser,
+  signOutUser,
+  checkAuthenticated,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Appbar);
