@@ -138,14 +138,7 @@ const useStyles = makeStyles((theme) => ({
     height: 200,
     borderRadius: 10,
   },
-  bgImage3: {
-    backgroundImage: `url('https://i.pinimg.com/originals/82/37/81/823781e9233402840be1851d40b77304.gif')`,
-    backgroundPosition: "center",
-    backgroundSize: "cover",
-    padding: 10,
-    height: 320,
-    borderRadius: 10,
-  },
+
   normalButton: {
     color: "white",
     textTransform: "none",
@@ -156,22 +149,6 @@ const useStyles = makeStyles((theme) => ({
       #4527A0, #B2EBF2)`,
     fontSize: 14,
     filter: `drop-shadow(0 0 0.2rem #00796B)`,
-    backgroundImage: "#AD1457",
-    marginLeft: 20,
-    "&:hover": {
-      background: "#7986CB",
-    },
-  },
-  normalButton1: {
-    color: "white",
-    textTransform: "none",
-    borderRadius: "12px",
-    width: "150px",
-    fontWeight: 500,
-    background: `linear-gradient(to right,
-      #4527A0,  #00796B)`,
-    fontSize: 14,
-    filter: `drop-shadow(0 0 0.2rem #D1C4E9)`,
     backgroundImage: "#AD1457",
     marginLeft: 20,
     "&:hover": {

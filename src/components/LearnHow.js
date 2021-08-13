@@ -15,7 +15,6 @@ const useStyles = makeStyles((theme) => ({
     minHeight: "100vh",
     paddingLeft: 30,
     paddingRight: 30,
-
     width: "100%",
   },
   cover: {
@@ -129,17 +128,6 @@ const useStyles = makeStyles((theme) => ({
     background: `linear-gradient(to right,#3f51b5, #1a237e)`,
     fontSize: 14,
     filter: `drop-shadow(0 0 0.1rem #1a237e)`,
-  },
-  normalButtonBid: {
-    color: "white",
-    textTransform: "none",
-    borderRadius: "12px",
-    padding: "8px 16px 8px 16px",
-    fontWeight: 500,
-    background: `linear-gradient(to right,#3f51b5, #1a237e)`,
-    filter: `drop-shadow(0 0 0.1rem #1a237e)`,
-    marginTop: 18,
-    fontSize: 14,
   },
 }));
 

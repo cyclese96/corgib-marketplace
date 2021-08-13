@@ -25,21 +25,6 @@ const useStyles = makeStyles((theme) => ({
       width: 200,
     },
   },
-  headingRecently: {
-    color: theme.palette.pbr.textPrimary,
-    fontSize: 20,
-    fontWeight: 600,
-    letterSpacing: "-0.1px",
-    verticalAlign: "middle",
-    wordSpacing: "0px",
-    paddingBottom: 5,
-
-    [theme.breakpoints.down("md")]: {
-      fontSize: 16,
-      width: 200,
-      paddingTop: 60,
-    },
-  },
 
   viewAll: {
     color: theme.palette.market.textPrimary,
@@ -54,20 +39,7 @@ const useStyles = makeStyles((theme) => ({
       fontSize: 14,
     },
   },
-  viewAllRecent: {
-    color: theme.palette.market.textPrimary,
-    fontWeight: 400,
-    verticalAlign: "baseline",
-    letterSpacing: "-0.8px",
-    width: 400,
-    paddingBottom: 20,
-    fontSize: 16,
-    textAlign: "right",
-    [theme.breakpoints.down("md")]: {
-      fontSize: 14,
-      paddingTop: 60,
-    },
-  },
+
   link: {
     color: theme.palette.market.textPrimary,
     "&:hover": {
@@ -101,27 +73,7 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: 10,
     borderRadius: 10,
   },
-  nftCard1: {
-    backgroundColor: "#15134A",
-    height: 340,
-    width: 250,
-    padding: 10,
-    marginRight: 50,
-    borderRadius: 10,
 
-    [theme.breakpoints.down("md")]: {},
-  },
-  nftCard2: {
-    backgroundColor: "#15134A",
-    height: 340,
-    width: 250,
-    padding: 10,
-    marginRight: 10,
-    marginLeft: 10,
-    borderRadius: 10,
-
-    [theme.breakpoints.down("md")]: {},
-  },
   bgImage: {
     backgroundImage: `url('https://i.redd.it/r042t3k4d4b61.gif')`,
     backgroundPosition: "center",
@@ -131,22 +83,6 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: 10,
   },
 
-  bgImage2: {
-    backgroundImage: `url('https://i.pinimg.com/originals/82/37/81/823781e9233402840be1851d40b77304.gif')`,
-    backgroundPosition: "center",
-    backgroundSize: "cover",
-    padding: 10,
-    height: 200,
-    borderRadius: 10,
-  },
-  bgImage3: {
-    backgroundImage: `url('https://i.pinimg.com/originals/82/37/81/823781e9233402840be1851d40b77304.gif')`,
-    backgroundPosition: "center",
-    backgroundSize: "cover",
-    padding: 10,
-    height: 320,
-    borderRadius: 10,
-  },
   normalButton: {
     color: "white",
     textTransform: "none",
@@ -163,22 +99,6 @@ const useStyles = makeStyles((theme) => ({
       background: "#7986CB",
     },
   },
-  normalButton1: {
-    color: "white",
-    textTransform: "none",
-    borderRadius: "12px",
-    width: "150px",
-    fontWeight: 500,
-    background: `linear-gradient(to right,
-      #4527A0,  #00796B)`,
-    fontSize: 14,
-    filter: `drop-shadow(0 0 0.2rem #D1C4E9)`,
-    backgroundImage: "#AD1457",
-    marginLeft: 20,
-    "&:hover": {
-      background: "#7986CB",
-    },
-  },
 
   nftCardButton: {
     display: "flex",
@@ -186,17 +106,7 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: 180,
     paddingRight: 12,
   },
-  nftCardButton1: {
-    display: "flex",
-    justifyContent: "flex-start",
-    paddingTop: 10,
-  },
-  nftCardButton2: {
-    display: "flex",
-    justifyContent: "center",
-    paddingTop: 235,
-    paddingRight: 12,
-  },
+
   textBox: {
     paddingTop: 10,
     paddingLeft: 5,

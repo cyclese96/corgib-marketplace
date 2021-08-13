@@ -2,56 +2,6 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
-  headingTop: {
-    color: theme.palette.pbr.textPrimary,
-    fontSize: 20,
-    fontWeight: 600,
-    letterSpacing: "-0.1px",
-    verticalAlign: "middle",
-    wordSpacing: "0px",
-    paddingBottom: 5,
-    [theme.breakpoints.down("md")]: {
-      fontSize: 18,
-    },
-  },
-  filter: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  filterWrapper: {
-    height: 70,
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-
-  filterButton: {
-    border: "1px solid ",
-    borderRadius: 10,
-    height: 40,
-    width: 150,
-    background: `linear-gradient(to right,#7b1fa2, #4a148c)`,
-    filter: `drop-shadow(0 0 0.1rem #4a148c)`,
-    marginRight: "10px",
-    color: "white",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  heading: {
-    color: theme.palette.pbr.textPrimary,
-    fontSize: 20,
-    fontWeight: 600,
-    letterSpacing: "-0.1px",
-    verticalAlign: "middle",
-    wordSpacing: "0px",
-    paddingBottom: 5,
-    [theme.breakpoints.down("md")]: {
-      fontSize: 18,
-    },
-  },
-
   auctionCard: {
     backgroundColor: "#15134A",
     width: 260,
