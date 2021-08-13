@@ -60,7 +60,7 @@ function LeftBar() {
           </Typography>
         </Link>
 
-        <Link to={"/market/profile"}>
+        <Link to={"profile"}>
           <Typography
             className={classes.tabs}
             variant="body1"
@@ -69,7 +69,7 @@ function LeftBar() {
             Activities
           </Typography>
         </Link>
-        <Link to={"/market/profile"}>
+        <Link to={"/profile"}>
           <Typography
             className={classes.tabs}
             variant="body1"
@@ -78,7 +78,7 @@ function LeftBar() {
             Profile
           </Typography>
         </Link>
-        <Link to={"/market/profile"}>
+        <Link to={"/profile"}>
           <Typography
             className={classes.tabs}
             variant="body1"

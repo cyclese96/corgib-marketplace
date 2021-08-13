@@ -33,13 +33,9 @@ function Home() {
         <div className="mt-3">
           <TrendingItems />
         </div>
-
-        {/* Category tabs and their items moved into one file and create a seperate component for single item */}
         <div className="mt-3">
           <AllItems />
         </div>
-
-        <Footer />
       </div>
     </div>
   );

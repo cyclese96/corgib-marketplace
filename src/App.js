@@ -14,6 +14,7 @@ import CreateNFT from "./pages/MarketPlace/details/CreateNFT";
 import LearnHow from "./components/LearnHow";
 import AllItems from "./components/AllItems";
 import Home from "./pages/MarketPlace/Home";
+import Footer from "./common/Footer";
 
 export default function App() {
   return (
@@ -35,19 +36,17 @@ export default function App() {
                 <Route exact path="/item-detail">
                   <ItemDetails />
                 </Route>
-                <Route exact path="/all-items">
-                  <AllItems />
-                </Route>
-                <Route exact path="/market/profile">
+                <Route exact path="/profile">
                   <Profile />
                 </Route>
-                <Route exact path="/market/create">
+                <Route exact path="/create-nft">
                   <CreateNFT />
                 </Route>
-                <Route exact path="/market/learn">
+                <Route exact path="/learn">
                   <LearnHow />
                 </Route>
               </Switch>
+              <Footer />
             </div>
           </div>
         </ThemeProvider>

@@ -128,6 +128,7 @@ var localCategories = [
   { id: 5, name: "Defi" },
   { id: 6, name: "Domains" },
 ];
+
 function AllItems({ getItems, items, categories }) {
   const classes = useStyles();
 
@@ -264,6 +265,7 @@ function AllItems({ getItems, items, categories }) {
       </div>
       <div className={classes.background}>
         <div className={classes.cardWrapper}>
+          {/* Infinite scroll will be implemented */}
           <CategoryCard />
           <CategoryCard />
           <CategoryCard />

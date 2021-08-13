@@ -97,13 +97,13 @@ function TopCard() {
               </h4>
               <div className="d-flex justify-content-start">
                 <div className="text-center">
-                  <Link to="/market/create">
+                  <Link to="/create-nft">
                     {" "}
                     <Button className={classes.actionButton}>Create NFT</Button>
                   </Link>{" "}
                 </div>
                 <div className="text-center">
-                  <Link to="/market/learn">
+                  <Link to="/learn">
                     <Button className={classes.normalButton}>Learn How</Button>
                   </Link>{" "}
                 </div>
