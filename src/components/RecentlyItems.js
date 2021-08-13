@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
@@ -214,104 +214,50 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function TopCard() {
-  // Break all the components into small components
-  // Featured Item alag Recently added alag
-
+function RecentlyAdded() {
   const classes = useStyles();
-
   return (
-    <div className={classes.background}>
-      <div className="row">
-        <div className="col-md-6">
-          <div className="d-flex justify-content-between">
-            <div>
-              <h2 className={classes.heading}>Featured Items</h2>
-            </div>
-            <div className={classes.viewAll}>
-              <Link to="/item-detail" className={classes.link}>
-                View All
-              </Link>
-            </div>
-          </div>
-          <div className={classes.mainCard}>
-            <Link to="/item-detail" className={classes.link}>
-              <div className={classes.nftCard}>
-                <div className={classes.bgImage}>
-                  <FavoriteBorderIcon />
-                  <div className={classes.nftCardButton}>
-                    <Button className={classes.normalButton}>Follow</Button>
-                  </div>
-                </div>
-                <div className={classes.textBox}>
-                  <h6 className={classes.cardText}>Tommy Kill Hell</h6>
-                  <h6>
-                    <strong>Carry Minati</strong>
-                  </h6>
-                </div>
-              </div>
-            </Link>
-
-            <Link to="/item-detail" className={classes.link}>
-              <div className={classes.nftCard}>
-                <div className={classes.bgImage}>
-                  <FavoriteBorderIcon />
-                  <div className={classes.nftCardButton}>
-                    <Button className={classes.normalButton}>Follow</Button>
-                  </div>
-                </div>
-                <div className={classes.textBox}>
-                  <h6 className={classes.cardText}>Tommy Kill Hell</h6>
-                  <h6>
-                    <strong>Carry Minati</strong>
-                  </h6>
-                </div>
-              </div>
-            </Link>
-          </div>
+    <div>
+      <div className="d-flex justify-content-start">
+        <div>
+          <h2 className={classes.headingRecently}>Recently Added</h2>
         </div>
-        <div className="col-md-6">
-          <div className="d-flex justify-content-start">
-            <div>
-              <h2 className={classes.headingRecently}>Recently Added</h2>
-            </div>
-            <div className={classes.viewAllRecent}>
-              <Link to="/market/recent" className={classes.link}>
-                View All
-              </Link>
-            </div>
-          </div>
-          <div className={classes.mainCard}>
-            <Link to="/item-detail" className={classes.link}>
-              <div className={classes.nftCard1}>
-                <div className={classes.bgImage2}>
-                  <FavoriteBorderIcon />
-                </div>
-                <div className={classes.textBox}>
-                  <h6 className={classes.cardText}>Tommy Kill Hell</h6>
-                  <h6>
-                    <strong>Carry Minati</strong>
-                  </h6>
-                </div>
-                <div className={classes.nftCardButton1}>
-                  <Button className={classes.normalButton1}>Follow</Button>
-                </div>
-              </div>
-            </Link>
-            <Link to="/item-detail" className={classes.link}>
-              <div className={classes.nftCard2}>
-                <div className={classes.bgImage3}>
-                  <FavoriteBorderIcon />
-                  <div className={classes.nftCardButton2}>
-                    <Button className={classes.normalButton}>Follow</Button>
-                  </div>
-                </div>
-              </div>
-            </Link>
-          </div>
+        <div className={classes.viewAllRecent}>
+          <Link to="/market/recent" className={classes.link}>
+            View All
+          </Link>
         </div>
+      </div>
+      <div className={classes.mainCard}>
+        <Link to="/item-detail" className={classes.link}>
+          <div className={classes.nftCard1}>
+            <div className={classes.bgImage2}>
+              <FavoriteBorderIcon />
+            </div>
+            <div className={classes.textBox}>
+              <h6 className={classes.cardText}>Tommy Kill Hell</h6>
+              <h6>
+                <strong>Carry Minati</strong>
+              </h6>
+            </div>
+            <div className={classes.nftCardButton1}>
+              <Button className={classes.normalButton1}>Follow</Button>
+            </div>
+          </div>
+        </Link>
+        <Link to="/item-detail" className={classes.link}>
+          <div className={classes.nftCard2}>
+            <div className={classes.bgImage3}>
+              <FavoriteBorderIcon />
+              <div className={classes.nftCardButton2}>
+                <Button className={classes.normalButton}>Follow</Button>
+              </div>
+            </div>
+          </div>
+        </Link>
       </div>
     </div>
   );
 }
-export default TopCard;
+
+export default RecentlyAdded;

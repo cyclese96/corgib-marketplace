@@ -1,69 +1,65 @@
-import React, { useEffect, useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import React, { useEffect, useState } from "react";
+import { makeStyles } from "@material-ui/core/styles";
 import {
   Button,
-  FormControl,
-  Input,
-  FormHelperText,
   createMuiTheme,
   ThemeProvider,
-  InputAdornment,
   TextField,
-} from '@material-ui/core';
-import { ArrowBack } from '@material-ui/icons';
-import { Link } from 'react-router-dom';
-import clsx from 'clsx';
+} from "@material-ui/core";
+import { ArrowBack } from "@material-ui/icons";
+import { Link } from "react-router-dom";
+import clsx from "clsx";
 
 const useStyles = makeStyles((theme) => ({
   background: {
     backgroundColor: theme.palette.market.primary,
     color: theme.palette.market.textPrimary,
-    minHeight: '100vh',
+    minHeight: "100vh",
     padding: 30,
-    width: '100%',
+    width: "100%",
   },
   multilineColor: {
-    color: 'white',
+    color: "white",
   },
   noBorder: {
-    border: 'none',
+    border: "none",
 
-    color: 'white',
+    color: "white",
   },
   inputLabel: {
-    color: '#bdbdbd',
+    color: "#bdbdbd",
     fontSize: 18,
     fontWeight: 600,
     paddingBottom: 0,
   },
   textField: {
-    backgroundColor: 'transparent',
-    color: '#e5e5e5',
+    backgroundColor: "transparent",
+    color: "#e5e5e5",
     borderRadius: 10,
-    border: '2px dashed #eeeeee',
+    border: "2px solid #eeeeee",
   },
   inputField: { paddingTop: 10, paddingBottom: 10 },
   uploadCard: {
     height: 100,
-    width: '100%',
+    width: "100%",
     borderRadius: 10,
-    border: '2px dashed #eeeeee',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
+    border: "2px dashed #eeeeee",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
   },
   helperText: {
     color: theme.palette.market.highlight,
   },
   pageTitle: {
-    color: '#eeeeee',
+    color: "#eeeeee",
     fontSize: 32,
     fontWeight: 600,
-    letterSpacing: '-0.1px',
-    verticalAlign: 'middle',
-    wordSpacing: '0px',
-    textAlign: 'left',
-    [theme.breakpoints.down('md')]: {
+    letterSpacing: "-0.1px",
+    verticalAlign: "middle",
+    wordSpacing: "0px",
+    textAlign: "left",
+    [theme.breakpoints.down("md")]: {
       fontSize: 24,
     },
   },
@@ -72,12 +68,12 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 16,
     fontWeight: 400,
     width: 600,
-    letterSpacing: '-0.1px',
-    verticalAlign: 'middle',
-    wordSpacing: '0px',
+    letterSpacing: "-0.1px",
+    verticalAlign: "middle",
+    wordSpacing: "0px",
     paddingBottom: 5,
-    textAlign: 'left',
-    [theme.breakpoints.down('md')]: {
+    textAlign: "left",
+    [theme.breakpoints.down("md")]: {
       fontSize: 14,
     },
   },
@@ -85,23 +81,23 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.pbr.textPrimary,
     fontSize: 20,
     fontWeight: 600,
-    letterSpacing: '-0.1px',
-    verticalAlign: 'middle',
-    wordSpacing: '0px',
+    letterSpacing: "-0.1px",
+    verticalAlign: "middle",
+    wordSpacing: "0px",
     paddingBottom: 5,
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down("md")]: {
       fontSize: 18,
     },
   },
   para: {
     color: theme.palette.market.highlight,
     fontWeight: 400,
-    verticalAlign: 'baseline',
-    letterSpacing: '-0.8px',
+    verticalAlign: "baseline",
+    letterSpacing: "-0.8px",
     width: 400,
     paddingBottom: 20,
     fontSize: 16,
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down("md")]: {
       fontSize: 14,
     },
   },
@@ -110,10 +106,10 @@ const useStyles = makeStyles((theme) => ({
     padding: 20,
   },
   createButton: {
-    color: 'white',
-    textTransform: 'none',
-    borderRadius: '30px',
-    padding: '12px 20px 12px 20px',
+    color: "white",
+    textTransform: "none",
+    borderRadius: "30px",
+    padding: "12px 20px 12px 20px",
     fontWeight: 600,
 
     background: `linear-gradient(to right,#7b1fa2, #4a148c)`,
@@ -121,13 +117,13 @@ const useStyles = makeStyles((theme) => ({
     filter: `drop-shadow(0 0 0.1rem #4a148c)`,
   },
   previewImage: {
-    borderRadius: '7px',
+    borderRadius: "10px",
   },
   normalButton: {
-    color: 'white',
-    textTransform: 'none',
-    borderRadius: '12px',
-    padding: '8px 16px 8px 16px',
+    color: "white",
+    textTransform: "none",
+    borderRadius: "12px",
+    padding: "8px 16px 8px 16px",
     fontWeight: 500,
     background: `linear-gradient(to right,#3f51b5, #1a237e)`,
     fontSize: 14,
@@ -136,34 +132,34 @@ const useStyles = makeStyles((theme) => ({
   viewAll: {
     color: theme.palette.market.textPrimary,
     fontWeight: 400,
-    verticalAlign: 'baseline',
-    letterSpacing: '-0.8px',
+    verticalAlign: "baseline",
+    letterSpacing: "-0.8px",
     width: 400,
     paddingBottom: 20,
     fontSize: 16,
-    textAlign: 'right',
-    [theme.breakpoints.down('md')]: {
+    textAlign: "right",
+    [theme.breakpoints.down("md")]: {
       fontSize: 14,
     },
   },
   mainCard: {
-    height: '100%',
+    height: "100%",
     padding: 25,
     paddingLeft: 45,
     borderRadius: 30,
-    width: '100%',
+    width: "100%",
     background: `linear-gradient(to right,#1C1656, #1C1656)`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
+    backgroundSize: "cover",
+    backgroundPosition: "center",
 
-    [theme.breakpoints.down('md')]: {
-      flexDirection: 'column',
-      justifyContent: 'start',
-      height: '100%',
+    [theme.breakpoints.down("md")]: {
+      flexDirection: "column",
+      justifyContent: "start",
+      height: "100%",
     },
   },
   sectionCard: {
-    backgroundColor: '#15134A',
+    backgroundColor: "#15134A",
     width: 600,
     minHeight: 400,
     padding: 10,
@@ -179,36 +175,36 @@ const useStyles = makeStyles((theme) => ({
   nftName: {
     color: theme.palette.market.textPrimary,
     fontWeight: 600,
-    verticalAlign: 'baseline',
-    letterSpacing: '-0.8px',
+    verticalAlign: "baseline",
+    letterSpacing: "-0.8px",
     paddingBottom: 0,
     fontSize: 28,
-    textAlign: 'left',
+    textAlign: "left",
 
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down("md")]: {
       fontSize: 20,
     },
   },
   creatorName: {
     color: theme.palette.market.textPrimary,
     fontWeight: 500,
-    verticalAlign: 'baseline',
-    letterSpacing: '-0.8px',
+    verticalAlign: "baseline",
+    letterSpacing: "-0.8px",
     paddingBottom: 0,
     fontSize: 16,
-    textAlign: 'left',
-    [theme.breakpoints.down('md')]: {
+    textAlign: "left",
+    [theme.breakpoints.down("md")]: {
       fontSize: 14,
     },
   },
   itemImage: {
     backgroundImage: `url('https://lh3.googleusercontent.com/Z4cgoB6_SeB5swDd_kS27PBJjNM87tDBksEmwFnF5BFv7JDqo7lfpHiAb499QO5lV6L-41bQSzSGx8r8QAMneibbhkfgixAnOIDG_yU')`,
-    backgroundPosition: 'center',
-    backgroundSize: 'cover',
+    backgroundPosition: "center",
+    backgroundSize: "cover",
     padding: 10,
     height: 500,
-    width: '100%',
-    borderRadius: '4%',
+    width: "100%",
+    borderRadius: "4%",
     marginBottom: 20,
   },
   highlight: {
@@ -218,14 +214,14 @@ const useStyles = makeStyles((theme) => ({
     height: 400,
     width: 300,
     borderRadius: 7,
-    border: '1px solid #eeeeee',
+    border: "1px solid #eeeeee",
   },
 }));
 
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: '#bdbdbd',
+      main: "#bdbdbd",
     },
   },
 });
@@ -234,7 +230,7 @@ function CreateNFT() {
 
   return (
     <div className={classes.background}>
-      <Link to="/market" className={classes.link}>
+      <Link to="/" className={classes.link}>
         <h2 className={classes.heading}>
           <ArrowBack />
           Go Back
@@ -244,7 +240,8 @@ function CreateNFT() {
         <h1 className={classes.pageTitle}>Create collectible</h1>
 
         <p className={classes.pagePara}>
-          Upload your file and fill the details to get your item directly into marketplace.
+          Upload your file and fill the details to get your item directly into
+          marketplace.
         </p>
         <div className="row ">
           <div className="col-md-8">
@@ -315,7 +312,9 @@ function CreateNFT() {
                     />
                   </ThemeProvider>
                 </div>
-                <small className={classes.helperText}>Enter amount in CORGIB</small>
+                <small className={classes.helperText}>
+                  Enter amount in CORGIB
+                </small>
               </div>
               <div className="my-3">
                 <h6 className={classes.inputLabel}>Royalties</h6>
@@ -336,13 +335,15 @@ function CreateNFT() {
                     />
                   </ThemeProvider>
                 </div>
-                <small className={classes.helperText}>Enter in numbers like 10, 20, 50</small>
+                <small className={classes.helperText}>
+                  Enter in numbers like 10, 20, 50
+                </small>
               </div>
               <div className="text-center">
                 <Link to="/market/create">
-                  {' '}
+                  {" "}
                   <Button className={classes.createButton}>Create Item</Button>
-                </Link>{' '}
+                </Link>{" "}
               </div>
             </div>
           </div>

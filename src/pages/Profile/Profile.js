@@ -218,7 +218,7 @@ function Profile() {
     <div className={classes.background}>
       <div className={classes.mainCard}>
         <div className={classes.cover}>
-          <Link to="/market" className={classes.link}>
+          <Link to="/" className={classes.link}>
             <div className="pt-3 px-3">
               <h2 className={classes.heading}>
                 <ArrowBack />

@@ -103,7 +103,9 @@ function TopCard() {
                   </Link>{" "}
                 </div>
                 <div className="text-center">
-                  <Button className={classes.normalButton}>Learn How</Button>
+                  <Link to="/market/learn">
+                    <Button className={classes.normalButton}>Learn How</Button>
+                  </Link>{" "}
                 </div>
               </div>
             </div>

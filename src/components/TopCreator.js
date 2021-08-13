@@ -128,7 +128,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function TopArtist() {
+function TopCreator() {
   const classes = useStyles();
 
   return (
@@ -251,4 +251,4 @@ function TopArtist() {
     </div>
   );
 }
-export default TopArtist;
+export default TopCreator;

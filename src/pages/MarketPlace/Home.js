@@ -1,13 +1,11 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import TopCard from "./../../components/TopCard";
-import ItemsSection from "./../../components/ItemsSection";
-import TopArtist from "./../../components/TopArtist";
-import LiveAuctions from "./details/TrendingItems";
+import TopCard from "../../components/TopCard";
 import Footer from "../../common/Footer";
-import Category from "../../components/Category";
 import TrendingItems from "./details/TrendingItems";
-import FilterTab from "../../components/FilterTab";
+import FeaturedItem from "../../components/FeaturedItems";
+import TopCreator from "../../components/TopCreator";
+import AllItems from "../../components/AllItems";
 
 const useStyles = makeStyles((theme) => ({
   background: {
@@ -17,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Marketplace() {
+function Home() {
   const classes = useStyles();
 
   return (
@@ -27,10 +25,10 @@ function Marketplace() {
           <TopCard />
         </div>
         <div>
-          <ItemsSection />
+          <FeaturedItem />
         </div>
         <div className="mt-3">
-          <TopArtist />
+          <TopCreator />
         </div>
         <div className="mt-3">
           <TrendingItems />
@@ -38,8 +36,7 @@ function Marketplace() {
 
         {/* Category tabs and their items moved into one file and create a seperate component for single item */}
         <div className="mt-3">
-          <FilterTab />
-          <Category />
+          <AllItems />
         </div>
 
         <Footer />
@@ -47,4 +44,4 @@ function Marketplace() {
     </div>
   );
 }
-export default Marketplace;
+export default Home;
