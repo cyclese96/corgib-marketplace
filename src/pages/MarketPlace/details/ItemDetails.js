@@ -10,8 +10,7 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
-import Footer from "../../../common/Footer";
-import AllItems from "../../../components/AllItems";
+import CategoryList from "../../../components/CategoryList";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -352,7 +351,7 @@ function ItemDetails() {
                         <div className="d-flex justify-content-start">
                           <div className={classes.profileBgImage}></div>
                           <div className={classes.profileTextBox}>
-                            <Link to="/market/profile" className={classes.link}>
+                            <Link to="/profile" className={classes.link}>
                               <h6 className={classes.profileCardText}>
                                 <strong>Carry Minati</strong>
                               </h6>
@@ -387,8 +386,7 @@ function ItemDetails() {
           </div>
         </div>
       </div>
-      <AllItems />
-      <Footer />
+      <CategoryList />
     </div>
   );
 }

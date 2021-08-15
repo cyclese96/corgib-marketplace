@@ -147,7 +147,7 @@ function TopCreator() {
                 <div className="d-flex justify-content-start">
                   <div className={classes.bgImage}></div>
                   <div className={classes.textBox}>
-                    <Link to="/market/profile" className={classes.link}>
+                    <Link to="/profile" className={classes.link}>
                       <h6 className={classes.cardText}>
                         <strong>Carry Minati</strong>
                       </h6>
@@ -164,7 +164,7 @@ function TopCreator() {
                 <div className="d-flex justify-content-start">
                   <div className={classes.bgImage}></div>
                   <div className={classes.textBox}>
-                    <Link to="/market/profile" className={classes.link}>
+                    <Link to="/profile" className={classes.link}>
                       <h6 className={classes.cardText}>
                         <strong>Denni Lie</strong>
                       </h6>
@@ -182,7 +182,7 @@ function TopCreator() {
                 <div className="d-flex justify-content-start">
                   <div className={classes.bgImage}></div>
                   <div className={classes.textBox}>
-                    <Link to="/market/profile" className={classes.link}>
+                    <Link to="/profile" className={classes.link}>
                       <h6 className={classes.cardText}>
                         <strong>Carry Minati</strong>
                       </h6>
@@ -198,7 +198,7 @@ function TopCreator() {
                 <div className="d-flex justify-content-start">
                   <div className={classes.bgImage}></div>
                   <div className={classes.textBox}>
-                    <Link to="/market/profile" className={classes.link}>
+                    <Link to="/profile" className={classes.link}>
                       <h6 className={classes.cardText}>
                         <strong>Carry Minati</strong>
                       </h6>
@@ -216,7 +216,7 @@ function TopCreator() {
                 <div className="d-flex justify-content-start">
                   <div className={classes.bgImage}></div>
                   <div className={classes.textBox}>
-                    <Link to="/market/profile" className={classes.link}>
+                    <Link to="/profile" className={classes.link}>
                       <h6 className={classes.cardText}>
                         <strong>Carry Minati</strong>
                       </h6>
@@ -232,7 +232,7 @@ function TopCreator() {
                 <div className="d-flex justify-content-start">
                   <div className={classes.bgImage}></div>
                   <div className={classes.textBox}>
-                    <Link to="/market/profile" className={classes.link}>
+                    <Link to="/profile" className={classes.link}>
                       <h6 className={classes.cardText}>
                         <strong>Carry Minati</strong>
                       </h6>

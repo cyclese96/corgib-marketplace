@@ -92,6 +92,8 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     justifyContent: "flex-start",
     alignItems: "center",
+    marginTop: 30,
+
     [theme.breakpoints.down("md")]: {
       flexDirection: "column",
       justifyContent: "start",

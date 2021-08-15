@@ -153,9 +153,11 @@ function FeaturedItem() {
                 </div>
                 <div className={classes.textBox}>
                   <h6 className={classes.cardText}>Tommy Kill Hell</h6>
-                  <h6>
-                    <strong>Carry Minati</strong>
-                  </h6>
+                  <Link to="/profile" className={classes.link}>
+                    <h6>
+                      <strong>Carry Minati</strong>
+                    </h6>
+                  </Link>
                 </div>
               </div>
             </Link>

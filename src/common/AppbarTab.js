@@ -5,7 +5,6 @@ import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import PropTypes from "prop-types";
-import { Fragment } from "react";
 import useTabs from "../hooks/useTabs";
 
 const useStyles = makeStyles({
@@ -83,6 +82,7 @@ export default function AppbarTab() {
           }
           label="Activities"
         />
+
         <Tab
           className={
             value === 2 ? classes.active_tabStyle : classes.default_tabStyle
@@ -91,14 +91,14 @@ export default function AppbarTab() {
         />
       </Tabs>
       <TabPanel value={value} index={0}>
-        <div>Home</div>
+        <div></div>
         {/* <Marketplace /> */}
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <div>Markets</div>
+        <div></div>
       </TabPanel>
       <TabPanel value={value} index={2}>
-        <div>Explore</div>
+        <div></div>
       </TabPanel>
     </>
   );

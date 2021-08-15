@@ -5,7 +5,7 @@ import Footer from "../../common/Footer";
 import TrendingItems from "./details/TrendingItems";
 import FeaturedItem from "../../components/FeaturedItems";
 import TopCreator from "../../components/TopCreator";
-import AllItems from "../../components/AllItems";
+import CategoryList from "../../components/CategoryList";
 
 const useStyles = makeStyles((theme) => ({
   background: {
@@ -34,7 +34,7 @@ function Home() {
           <TrendingItems />
         </div>
         <div className="mt-3">
-          <AllItems />
+          <CategoryList />
         </div>
       </div>
     </div>

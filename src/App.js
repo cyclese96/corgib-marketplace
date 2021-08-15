@@ -12,9 +12,9 @@ import LeftBar from "./common/LeftBar";
 import "./web";
 import CreateNFT from "./pages/MarketPlace/details/CreateNFT";
 import LearnHow from "./components/LearnHow";
-import AllItems from "./components/AllItems";
 import Home from "./pages/MarketPlace/Home";
 import Footer from "./common/Footer";
+import AllItems from "./common/AllItems";
 
 export default function App() {
   return (
@@ -24,10 +24,8 @@ export default function App() {
           <div className="row g-0">
             <div className="col-md-2">
               <LeftBar />
-              {/* Clean your leftbar code according to design */}
             </div>
             <div className="col-md-10">
-              {/* {Paste your appbar here}? */}
               <Appbar />
               <Switch>
                 <Route exact path="/">
@@ -44,6 +42,9 @@ export default function App() {
                 </Route>
                 <Route exact path="/learn">
                   <LearnHow />
+                </Route>
+                <Route exact path="/all-items">
+                  <AllItems />
                 </Route>
               </Switch>
               <Footer />

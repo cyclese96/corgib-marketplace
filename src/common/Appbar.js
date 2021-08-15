@@ -29,6 +29,13 @@ import propTypes from "prop-types";
 import MuiAlert from "@material-ui/lab/Alert";
 import { AccountBalanceWallet, Close } from "@material-ui/icons";
 import BalancePopup from "./BalancePopup";
+import Paper from "@material-ui/core/Paper";
+import InputBase from "@material-ui/core/InputBase";
+import Divider from "@material-ui/core/Divider";
+import IconButton from "@material-ui/core/IconButton";
+import MenuIcon from "@material-ui/icons/Menu";
+import SearchIcon from "@material-ui/icons/Search";
+import DirectionsIcon from "@material-ui/icons/Directions";
 
 const useStyles = makeStyles((theme) => ({
   background: {
@@ -167,6 +174,33 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 14,
     filter: `drop-shadow(0 0 0.1rem #1a237e)`,
   },
+  root: {
+    display: "flex",
+    alignItems: "center",
+    width: 200,
+    height: 40,
+    borderRadius: 15,
+    background: `linear-gradient(to right,#1C1656, #1C1656)`,
+    border: "1px solid #FAFAFA ",
+    color: "white",
+  },
+  input: {
+    marginLeft: theme.spacing(1),
+    flex: 1,
+  },
+  iconButton: {
+    padding: 10,
+    color: "white",
+  },
+  divider: {
+    height: 28,
+    margin: 4,
+  },
+  icon: {
+    color: "white",
+    paddingRight: 10,
+    fontSize: 40,
+  },
 }));
 
 function Alert(props) {
@@ -278,18 +312,22 @@ function Appbar({
     <div className={classes.grow}>
       <AppBar position="static" className={classes.background}>
         <Toolbar className="d-flex justify-content-between ">
-          <div className={classes.title}>
-            <Link to="/">
-              <div className="d-flex flex-row  justify-content-start align-items-center">
-                <div style={{ paddingTop: 5 }}>
-                  <img src="/corgi.png" alt="logo" height="55px" />{" "}
-                </div>{" "}
-                <div className={classes.logo}>
-                  Corgib <span className={classes.highlight}>MarketPlace</span>
-                </div>
-              </div>
-            </Link>
-          </div>
+          <Paper component="form" className={classes.root}>
+            <InputBase className={classes.input} placeholder="Search" />
+            <IconButton
+              type="submit"
+              className={classes.iconButton}
+              aria-label="search"
+            ></IconButton>
+            <Divider className={classes.divider} orientation="vertical" />
+            <IconButton
+              color="primary"
+              className={classes.iconButton}
+              aria-label="directions"
+            >
+              <DirectionsIcon />
+            </IconButton>
+          </Paper>
           <div className="d-flex justify-content-center align-items-center">
             <AppbarTab />
           </div>

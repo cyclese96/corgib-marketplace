@@ -129,7 +129,7 @@ var localCategories = [
   { id: 6, name: "Domains" },
 ];
 
-function AllItems({ getItems, items, categories }) {
+function CategoryList({ getItems, items, categories }) {
   const classes = useStyles();
 
   const [collection, setCollection] = useState([]);
@@ -272,8 +272,17 @@ function AllItems({ getItems, items, categories }) {
           <CategoryCard />
         </div>
       </div>
+      <div className={classes.background}>
+        <div className={classes.cardWrapper}>
+          {/* Infinite scroll will be implemented */}
+          <CategoryCard />
+          <CategoryCard />
+          <CategoryCard />
+          <CategoryCard />
+        </div>
+      </div>
     </div>
   );
 }
 
-export default AllItems;
+export default CategoryList;

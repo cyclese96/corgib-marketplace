@@ -130,12 +130,20 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: 10,
   },
 
-  bgImage2: {
+  bgImage1: {
     backgroundImage: `url('https://i.pinimg.com/originals/82/37/81/823781e9233402840be1851d40b77304.gif')`,
     backgroundPosition: "center",
     backgroundSize: "cover",
     padding: 10,
     height: 200,
+    borderRadius: 10,
+  },
+  bgImage2: {
+    backgroundImage: `url('https://i.pinimg.com/originals/82/37/81/823781e9233402840be1851d40b77304.gif')`,
+    backgroundPosition: "center",
+    backgroundSize: "cover",
+    padding: 10,
+    height: 250,
     borderRadius: 10,
   },
 
@@ -208,23 +216,25 @@ function RecentlyAdded() {
       <div className={classes.mainCard}>
         <Link to="/item-detail" className={classes.link}>
           <div className={classes.nftCard1}>
-            <div className={classes.bgImage2}>
+            <div className={classes.bgImage1}>
               <FavoriteBorderIcon />
             </div>
             <div className={classes.textBox}>
               <h6 className={classes.cardText}>Tommy Kill Hell</h6>
-              <h6>
-                <strong>Carry Minati</strong>
-              </h6>
+              <Link to="/profile" className={classes.link}>
+                <h6>
+                  <strong>Carry Minati</strong>
+                </h6>
+              </Link>
             </div>
             <div className={classes.nftCardButton1}>
-              <Button className={classes.normalButton1}>Follow</Button>
+              <Button className={classes.normalButton}>Follow</Button>
             </div>
           </div>
         </Link>
         <Link to="/item-detail" className={classes.link}>
           <div className={classes.nftCard2}>
-            <div className={classes.bgImage3}>
+            <div className={classes.bgImage2}>
               <FavoriteBorderIcon />
               <div className={classes.nftCardButton2}>
                 <Button className={classes.normalButton}>Follow</Button>
