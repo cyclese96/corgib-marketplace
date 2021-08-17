@@ -1,10 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
-import RecentlyAdded from "./RecentlyItems";
-import FeaturedCard from "./FeaturedCard";
 
 const useStyles = makeStyles((theme) => ({
   background: {
@@ -139,34 +137,27 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
-
-function FeaturedItem() {
+function FeaturedCard() {
   const classes = useStyles();
 
   return (
-    <div className={classes.background}>
-      <div className="row">
-        <div className="col-md-6">
-          <div className="d-flex justify-content-between">
-            <div>
-              <h2 className={classes.heading}>Featured Items</h2>
-            </div>
-            <div className={classes.viewAll}>
-              <Link to="/all-items" className={classes.link}>
-                View All
-              </Link>
-            </div>
-          </div>
-          <div className={classes.mainCard}>
-            <FeaturedCard />
-            <FeaturedCard />
+    <Link to="/item-detail">
+      <div className={classes.nftCard}>
+        <div className={classes.bgImage}>
+          <FavoriteBorderIcon />
+          <div className={classes.nftCardButton}>
+            <Button className={classes.normalButton}>Follow</Button>
           </div>
         </div>
-        <div className="col-md-6">
-          <RecentlyAdded />
+        <div className={classes.textBox}>
+          <h6 className={classes.cardText}>Tommy Kill Hell</h6>
+          <Link to="/profile">
+            <h6 className={classes.creatorName}>Amir Minati</h6>
+          </Link>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
-export default FeaturedItem;
+
+export default FeaturedCard;
