@@ -14,7 +14,7 @@ import ArchiveIcon from "@material-ui/icons/Archive";
 
 const useStyles = makeStyles((theme) => ({
   background: {
-    backgroundColor: "#c2185b",
+    backgroundColor: "#e5e5e5",
     minHeight: "100%",
     paddingTop: 50,
     padding: 10,
@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   mainCard: {
-    backgroundColor: "#c2185b",
+    backgroundColor: "#e5e5e5",
     height: "100%",
     borderRadius: 10,
     width: "95%",
@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   tabs: {
-    color: theme.palette.market.textPrimary,
+    color: "black",
     display: "block",
     fontWeight: 500,
     lineHeight: "24px",
@@ -64,7 +64,7 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     display: "block",
-    color: "#e65100",
+    color: "#212121",
     fontSize: 18,
     [theme.breakpoints.down("md")]: {
       display: "none",
@@ -72,7 +72,7 @@ const useStyles = makeStyles((theme) => ({
   },
   title1: {
     display: "block",
-    color: "#FAFAFA",
+    color: "#212121",
     fontSize: 12,
     paddingLeft: 10,
     [theme.breakpoints.down("md")]: {
@@ -81,7 +81,7 @@ const useStyles = makeStyles((theme) => ({
   },
   logo: {
     fontWeight: 600,
-    color: theme.palette.market.textPrimary,
+    color: "#212121",
     fontSize: 18,
     letterSpacing: "-1px",
     paddingTop: 5,
@@ -90,12 +90,12 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.pbr.primary,
   },
   actionButton: {
-    color: "black",
+    color: "white",
     textTransform: "none",
     borderRadius: "15px",
     padding: "8px 16px 8px 16px",
     fontWeight: 500,
-    background: `linear-gradient(to right,#e5e5e5, #ffffff)`,
+    background: `linear-gradient(to right,#e91e63,#ec407a )`,
     fontSize: 14,
 
     marginLeft: 20,
@@ -119,7 +119,7 @@ function LeftBar() {
                 <img src="/corgi.png" alt="logo" height="50px" />{" "}
               </div>{" "}
               <div className={classes.logo}>
-                Corgib <span style={{ color: "#212121" }}>MarketPlace</span>
+                Corgib <span style={{ color: "#c51162" }}>MarketPlace</span>
               </div>
             </div>
           </Link>
