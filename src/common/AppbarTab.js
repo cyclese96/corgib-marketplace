@@ -6,18 +6,21 @@ import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import PropTypes from "prop-types";
 import useTabs from "../hooks/useTabs";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles({
   root: {
     // marginBottom: 50,
   },
   default_tabStyle: {
-    color: "rgba(255, 255, 255, 0.3)",
+    color: "black",
     fontSize: 14,
+    fontWeight: 600,
   },
   active_tabStyle: {
     fontSize: 14,
-    color: "white",
+    color: "#C80C81",
+    fontWeight: 700,
   },
 });
 
@@ -71,35 +74,31 @@ export default function AppbarTab() {
         className={classes.root}
       >
         <Tab
+          component={Link}
+          to={"/"}
           className={
             value === 0 ? classes.active_tabStyle : classes.default_tabStyle
           }
           label="Explore"
         />
         <Tab
+          component={Link}
+          to={"/profile"}
           className={
             value === 1 ? classes.active_tabStyle : classes.default_tabStyle
           }
-          label="Activities"
+          label="Profile"
         />
 
         <Tab
+          component={Link}
+          to={"/profile"}
           className={
             value === 2 ? classes.active_tabStyle : classes.default_tabStyle
           }
-          label="Profile"
+          label="Activities"
         />
       </Tabs>
-      <TabPanel value={value} index={0}>
-        <div></div>
-        {/* <Marketplace /> */}
-      </TabPanel>
-      <TabPanel value={value} index={1}>
-        <div></div>
-      </TabPanel>
-      <TabPanel value={value} index={2}>
-        <div></div>
-      </TabPanel>
     </>
   );
 }

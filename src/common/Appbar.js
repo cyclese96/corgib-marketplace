@@ -39,7 +39,7 @@ import DirectionsIcon from "@material-ui/icons/Directions";
 
 const useStyles = makeStyles((theme) => ({
   background: {
-    backgroundColor: theme.palette.market.primary,
+    backgroundColor: "transparent",
     boxShadow: "none",
     height: 70,
   },
@@ -65,7 +65,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   tabs: {
-    color: theme.palette.market.textPrimary,
+    color: "black",
     display: "block",
     fontWeight: 500,
     lineHeight: "24px",
@@ -166,13 +166,18 @@ const useStyles = makeStyles((theme) => ({
   normalButton: {
     color: "#f9f9f9",
     textTransform: "none",
-    borderRadius: "12px",
+    borderRadius: "50px",
     padding: "8px 16px 8px 16px",
     fontWeight: 500,
     background: `linear-gradient(to right,#3f51b5, #1a237e)`,
-    border: "1px solid #bdbdbd",
     fontSize: 14,
     filter: `drop-shadow(0 0 0.1rem #1a237e)`,
+  },
+  balanceButton: {
+    border: "2px solid #C80C81",
+    borderRadius: 50,
+    textTransform: "none",
+    padding: "4px 16px 4px 16px",
   },
   root: {
     display: "flex",
@@ -197,7 +202,7 @@ const useStyles = makeStyles((theme) => ({
     margin: 4,
   },
   icon: {
-    color: "white",
+    color: "#212121",
     paddingRight: 10,
     fontSize: 40,
   },
@@ -312,22 +317,7 @@ function Appbar({
     <div className={classes.grow}>
       <AppBar position="static" className={classes.background}>
         <Toolbar className="d-flex justify-content-between ">
-          <Paper component="form" className={classes.root}>
-            <InputBase className={classes.input} placeholder="Search" />
-            <IconButton
-              type="submit"
-              className={classes.iconButton}
-              aria-label="search"
-            ></IconButton>
-            <Divider className={classes.divider} orientation="vertical" />
-            <IconButton
-              color="primary"
-              className={classes.iconButton}
-              aria-label="directions"
-            >
-              <DirectionsIcon />
-            </IconButton>
-          </Paper>
+          <div></div>
           <div className="d-flex justify-content-center align-items-center">
             <AppbarTab />
           </div>
@@ -343,7 +333,7 @@ function Appbar({
                       <AccountBalanceWallet className={classes.icon} />
                     </div>
                     <div>
-                      <strong style={{ color: "#e5e5e5" }}>
+                      <strong style={{ color: "#212121", fontSize: 16 }}>
                         {bnbBal !== null &&
                           parseFloat(bnbBal).toFixed(3) + " BNB"}{" "}
                       </strong>

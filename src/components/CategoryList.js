@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     padding: 15,
     borderRadius: 30,
     width: "100%",
-    background: `linear-gradient(to right,#1C1656, #1C1656)`,
+    background: `linear-gradient(to right,#fce4ec, #fce4ec)`,
     backgroundSize: "cover",
     backgroundPosition: "center",
     display: "flex",
@@ -54,7 +54,7 @@ const useStyles = makeStyles((theme) => ({
     height: "40px",
     textTransform: "capitalize",
 
-    color: theme.palette.pbr.textPrimary,
+    color: "#C80C81",
     [theme.breakpoints.down("md")]: {
       padding: "6px 14px 6px 14px",
       fontSize: 13,
@@ -65,7 +65,7 @@ const useStyles = makeStyles((theme) => ({
   categoryTabActive: {
     display: "inline",
     width: "fit-content",
-    border: "1px solid #616161",
+    border: "1px solid #C80C81",
     borderRadius: "20px",
     fontSize: 13,
     fontWeight: 500,
@@ -74,9 +74,9 @@ const useStyles = makeStyles((theme) => ({
     marginRight: "12px",
     cursor: "pointer",
     textTransform: "capitalize",
-    backgroundColor: "grey",
+    backgroundColor: "#C80C81",
+    color: "white",
 
-    color: "#fffffff",
     [theme.breakpoints.down("md")]: {
       padding: "6px 14px 6px 14px",
       fontSize: 13,

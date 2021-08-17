@@ -14,19 +14,21 @@ import ArchiveIcon from "@material-ui/icons/Archive";
 
 const useStyles = makeStyles((theme) => ({
   background: {
-    color: theme.palette.market.textPrimary,
+    backgroundColor: "#c2185b",
     minHeight: "100%",
-    padding: 20,
+    paddingTop: 50,
+    padding: 10,
     width: "100%",
     [theme.breakpoints.down("md")]: {
       height: "80vh",
     },
   },
   mainCard: {
-    backgroundColor: "#1B1450",
+    backgroundColor: "#c2185b",
     height: "100%",
     borderRadius: 10,
     width: "95%",
+    minHeight: "90vh",
     display: "flex",
     flexDirection: "column",
     justifyContent: "flex-start",
@@ -88,14 +90,14 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.pbr.primary,
   },
   actionButton: {
-    color: "white",
+    color: "black",
     textTransform: "none",
-    borderRadius: "12px",
+    borderRadius: "15px",
     padding: "8px 16px 8px 16px",
     fontWeight: 500,
-    background: `linear-gradient(to right,#7b1fa2, #4a148c)`,
+    background: `linear-gradient(to right,#e5e5e5, #ffffff)`,
     fontSize: 14,
-    filter: `drop-shadow(0 0 0.1rem #4a148c)`,
+
     marginLeft: 20,
     marginBottom: 30,
     marginTop: 20,
@@ -117,7 +119,7 @@ function LeftBar() {
                 <img src="/corgi.png" alt="logo" height="50px" />{" "}
               </div>{" "}
               <div className={classes.logo}>
-                Corgib <span className={classes.highlight}>MarketPlace</span>
+                Corgib <span style={{ color: "#212121" }}>MarketPlace</span>
               </div>
             </div>
           </Link>
@@ -164,99 +166,10 @@ function LeftBar() {
           <div className="text-center">
             <Link to="/create-nft">
               {" "}
-              <Button className={classes.actionButton}>Create NFT</Button>
+              <Button variant="contained" className={classes.actionButton}>
+                Create Your NFT
+              </Button>
             </Link>{" "}
-          </div>
-        </div>
-      </div>
-      <div className={classes.mainCard1}>
-        <div className={classes.title1}>
-          <div>Grouping</div>
-          <div className="row">
-            <div className="col">
-              <AccountBalanceIcon className={classes.icon} />
-            </div>
-            <div className="col">
-              <AddPhotoAlternateIcon className={classes.icon} />
-            </div>
-            <div className="col">
-              <AddShoppingCartIcon className={classes.icon} />
-            </div>
-            <div className="col">
-              <ArchiveIcon className={classes.icon} />
-            </div>
-            <div className="col">
-              <AccountBalanceIcon className={classes.icon} />
-            </div>
-            <div className="col">
-              <AddPhotoAlternateIcon className={classes.icon} />
-            </div>
-            <div className="col">
-              <AddShoppingCartIcon className={classes.icon} />
-            </div>
-            <div className="col">
-              <ArchiveIcon className={classes.icon} />
-            </div>
-            <div className="col">
-              <AccountBalanceIcon className={classes.icon} />
-            </div>
-            <div className="col">
-              <AddPhotoAlternateIcon className={classes.icon} />
-            </div>
-            <div className="col">
-              <AddShoppingCartIcon className={classes.icon} />
-            </div>
-            <div className="col">
-              <ArchiveIcon className={classes.icon} />
-            </div>{" "}
-            <div className="col">
-              <AccountBalanceIcon className={classes.icon} />
-            </div>
-            <div className="col">
-              <AddPhotoAlternateIcon className={classes.icon} />
-            </div>
-            <div className="col">
-              <AddShoppingCartIcon className={classes.icon} />
-            </div>
-            <div className="col">
-              <ArchiveIcon className={classes.icon} />
-            </div>{" "}
-            <div className="col">
-              <AccountBalanceIcon className={classes.icon} />
-            </div>
-            <div className="col">
-              <AddPhotoAlternateIcon className={classes.icon} />
-            </div>
-            <div className="col">
-              <AddShoppingCartIcon className={classes.icon} />
-            </div>
-            <div className="col">
-              <ArchiveIcon className={classes.icon} />
-            </div>{" "}
-            <div className="col">
-              <AccountBalanceIcon className={classes.icon} />
-            </div>
-            <div className="col">
-              <AddPhotoAlternateIcon className={classes.icon} />
-            </div>
-            <div className="col">
-              <AddShoppingCartIcon className={classes.icon} />
-            </div>
-            <div className="col">
-              <ArchiveIcon className={classes.icon} />
-            </div>{" "}
-            <div className="col">
-              <AccountBalanceIcon className={classes.icon} />
-            </div>
-            <div className="col">
-              <AddPhotoAlternateIcon className={classes.icon} />
-            </div>
-            <div className="col">
-              <AddShoppingCartIcon className={classes.icon} />
-            </div>
-            <div className="col">
-              <ArchiveIcon className={classes.icon} />
-            </div>
           </div>
         </div>
       </div>

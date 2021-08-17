@@ -47,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
     cursor: "pointer",
     height: "40px",
 
-    color: theme.palette.pbr.textPrimary,
+    color: "#C80C81",
     [theme.breakpoints.down("md")]: {
       padding: "6px 14px 6px 14px",
       fontSize: 13,

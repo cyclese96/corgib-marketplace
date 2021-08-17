@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   background: {
-    color: theme.palette.market.textPrimary,
     padding: 30,
     width: "100%",
     display: "flex",
@@ -13,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: "-500",
   },
   card: {
-    backgroundColor: "white",
+    backgroundColor: "#f8bbd0",
     height: 300,
     width: "100%",
     padding: 20,
@@ -64,12 +63,12 @@ const useStyles = makeStyles((theme) => ({
     filter: `drop-shadow(0 0 0.1rem #4a148c)`,
   },
   normalButton: {
-    color: "white",
+    color: "black",
     textTransform: "none",
     borderRadius: "12px",
     padding: "8px 16px 8px 16px",
     fontWeight: 500,
-    background: `linear-gradient(to right,#15134A, #1C1656)`,
+    background: `linear-gradient(to right,#ffffff,#e5e5e5)`,
     fontSize: 14,
     filter: `drop-shadow(0 0 0.1rem #1C1656)`,
   },

@@ -12,27 +12,28 @@ const useStyles = makeStyles((theme) => ({
   },
 
   heading: {
-    color: theme.palette.pbr.textPrimary,
+    color: "#212121",
     fontSize: 20,
     fontWeight: 600,
     letterSpacing: "-0.1px",
     verticalAlign: "middle",
     wordSpacing: "0px",
     paddingBottom: 5,
+    paddingLeft: 10,
     [theme.breakpoints.down("md")]: {
       fontSize: 16,
       width: 200,
     },
   },
   headingRecently: {
-    color: theme.palette.pbr.textPrimary,
+    color: "#212121",
     fontSize: 20,
     fontWeight: 600,
     letterSpacing: "-0.1px",
     verticalAlign: "middle",
     wordSpacing: "0px",
     paddingBottom: 5,
-
+    paddingLeft: 10,
     [theme.breakpoints.down("md")]: {
       fontSize: 16,
       width: 200,
@@ -41,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   viewAll: {
-    color: theme.palette.market.textPrimary,
+    color: "#212121",
     fontWeight: 400,
     verticalAlign: "baseline",
     letterSpacing: "-0.8px",
@@ -54,7 +55,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   viewAllRecent: {
-    color: theme.palette.market.textPrimary,
+    color: "#212121",
     fontWeight: 400,
     verticalAlign: "baseline",
     letterSpacing: "-0.8px",
@@ -68,7 +69,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   link: {
-    color: theme.palette.market.textPrimary,
+    color: "#212121",
     "&:hover": {
       color: theme.palette.market.highlight,
     },
@@ -78,7 +79,7 @@ const useStyles = makeStyles((theme) => ({
     padding: 15,
     borderRadius: 10,
     width: "100%",
-    background: `linear-gradient(to right,#1C1656, #1C1656)`,
+    background: `linear-gradient(to right,#eceff1, #eceff1)`,
     backgroundSize: "cover",
     backgroundPosition: "center",
     display: "flex",
@@ -91,38 +92,29 @@ const useStyles = makeStyles((theme) => ({
       height: "100%",
     },
   },
-  nftCard: {
-    backgroundColor: "#15134A",
-    height: 260,
-    width: 220,
-    padding: 10,
-    marginRight: 10,
-    marginLeft: 10,
-    borderRadius: 10,
-  },
-  nftCard1: {
-    backgroundColor: "#15134A",
-    height: 340,
-    width: 250,
-    padding: 10,
-    marginRight: 50,
-    borderRadius: 10,
 
-    [theme.breakpoints.down("md")]: {},
+  nftCard1: {
+    backgroundColor: "#303f9f",
+    height: 340,
+    width: 240,
+    padding: 10,
+    marginRight: 15,
+    marginLeft: 15,
+    borderRadius: 10,
   },
   nftCard2: {
-    backgroundColor: "#15134A",
+    backgroundColor: "#303f9f",
     height: 340,
-    width: 250,
+    width: 240,
     padding: 10,
-    marginRight: 10,
-    marginLeft: 10,
+    marginRight: 15,
+    marginLeft: 15,
     borderRadius: 10,
 
     [theme.breakpoints.down("md")]: {},
   },
   bgImage: {
-    backgroundImage: `url('https://i.redd.it/r042t3k4d4b61.gif')`,
+    backgroundImage: `url('https://images.squarespace-cdn.com/content/v1/5857eeba9de4bb486e1ba151/1617454647979-WWZJY0BDAYR9AUS496PH/IMG_0519.GIF?format=1000w')`,
     backgroundPosition: "center",
     backgroundSize: "cover",
     padding: 10,
@@ -131,7 +123,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   bgImage1: {
-    backgroundImage: `url('https://i.pinimg.com/originals/82/37/81/823781e9233402840be1851d40b77304.gif')`,
+    backgroundImage: `url('https://images.squarespace-cdn.com/content/v1/5857eeba9de4bb486e1ba151/1617454647979-WWZJY0BDAYR9AUS496PH/IMG_0519.GIF?format=1000w')`,
     backgroundPosition: "center",
     backgroundSize: "cover",
     padding: 10,
@@ -148,31 +140,25 @@ const useStyles = makeStyles((theme) => ({
   },
 
   normalButton: {
-    color: "white",
+    color: "black",
     textTransform: "none",
     borderRadius: "12px",
-    width: "150px",
+    padding: "5px 30px 5px 30px",
     fontWeight: 500,
     background: `linear-gradient(to right,
-      #4527A0, #B2EBF2)`,
+      #f9f9f9, #ffffff)`,
     fontSize: 14,
     filter: `drop-shadow(0 0 0.2rem #00796B)`,
     backgroundImage: "#AD1457",
-    marginLeft: 20,
+
     "&:hover": {
       background: "#7986CB",
     },
   },
 
-  nftCardButton: {
-    display: "flex",
-    justifyContent: "center",
-    paddingTop: 180,
-    paddingRight: 12,
-  },
   nftCardButton1: {
     display: "flex",
-    justifyContent: "flex-start",
+    justifyContent: "center",
     paddingTop: 10,
   },
   nftCardButton2: {
@@ -195,6 +181,18 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "left",
     [theme.breakpoints.down("md")]: {
       fontSize: 14,
+    },
+    creatorName: {
+      color: theme.palette.market.highlight,
+      fontWeight: 600,
+      verticalAlign: "baseline",
+      letterSpacing: "-0.8px",
+      paddingBottom: 0,
+      fontSize: 16,
+      textAlign: "left",
+      [theme.breakpoints.down("md")]: {
+        fontSize: 14,
+      },
     },
   },
 }));
@@ -221,24 +219,28 @@ function RecentlyAdded() {
             </div>
             <div className={classes.textBox}>
               <h6 className={classes.cardText}>Tommy Kill Hell</h6>
-              <Link to="/profile" className={classes.link}>
-                <h6>
-                  <strong>Carry Minati</strong>
-                </h6>
+              <Link to="/profile">
+                <h6 className={classes.creatorName}>Amir Minati</h6>
               </Link>
             </div>
             <div className={classes.nftCardButton1}>
               <Button className={classes.normalButton}>Follow</Button>
             </div>
           </div>
-        </Link>
+        </Link>{" "}
         <Link to="/item-detail" className={classes.link}>
-          <div className={classes.nftCard2}>
-            <div className={classes.bgImage2}>
+          <div className={classes.nftCard1}>
+            <div className={classes.bgImage1}>
               <FavoriteBorderIcon />
-              <div className={classes.nftCardButton2}>
-                <Button className={classes.normalButton}>Follow</Button>
-              </div>
+            </div>
+            <div className={classes.textBox}>
+              <h6 className={classes.cardText}>Tommy Kill Hell</h6>
+              <Link to="/profile">
+                <h6 className={classes.creatorName}>Carry Minati</h6>
+              </Link>
+            </div>
+            <div className={classes.nftCardButton1}>
+              <Button className={classes.normalButton}>Follow</Button>
             </div>
           </div>
         </Link>

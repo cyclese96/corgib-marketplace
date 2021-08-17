@@ -13,20 +13,21 @@ const useStyles = makeStyles((theme) => ({
   },
 
   heading: {
-    color: theme.palette.pbr.textPrimary,
+    color: "#212121",
     fontSize: 20,
     fontWeight: 600,
     letterSpacing: "-0.1px",
     verticalAlign: "middle",
     wordSpacing: "0px",
     paddingBottom: 5,
+    paddingLeft: 10,
     [theme.breakpoints.down("md")]: {
       fontSize: 16,
       width: 200,
     },
   },
   headingRecently: {
-    color: theme.palette.pbr.textPrimary,
+    color: "black",
     fontSize: 20,
     fontWeight: 600,
     letterSpacing: "-0.1px",
@@ -42,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   viewAll: {
-    color: theme.palette.market.textPrimary,
+    color: "black",
     fontWeight: 400,
     verticalAlign: "baseline",
     letterSpacing: "-0.8px",
@@ -55,7 +56,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   viewAllRecent: {
-    color: theme.palette.market.textPrimary,
+    color: "black",
     fontWeight: 400,
     verticalAlign: "baseline",
     letterSpacing: "-0.8px",
@@ -75,18 +76,18 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   mainCard: {
-    backgroundColor: "white",
-    height: 370,
-    padding: 15,
-    borderRadius: 10,
-    width: "100%",
-    background: `linear-gradient(to right,#1C1656, #1C1656)`,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
     display: "flex",
     flexDirection: "row",
-    justifyContent: "space-around",
+    justifyContent: "space-between",
     alignItems: "center",
+    height: 360,
+    padding: 10,
+    borderRadius: 10,
+    width: "100%",
+    background: `linear-gradient(to right,#fff8e1, #fff8e1)`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+
     [theme.breakpoints.down("md")]: {
       flexDirection: "column",
       justifyContent: "space-between",
@@ -95,22 +96,12 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   nftCard: {
-    backgroundColor: "#15134A",
+    backgroundColor: "#303f9f",
     height: 340,
-    width: 210,
+    width: 220,
     padding: 10,
     marginRight: 10,
     marginLeft: 10,
-    borderRadius: 10,
-
-    [theme.breakpoints.down("md")]: {},
-  },
-  nftCard1: {
-    backgroundColor: "#15134A",
-    height: 340,
-    width: 250,
-    padding: 10,
-    marginRight: 50,
     borderRadius: 10,
 
     [theme.breakpoints.down("md")]: {},
@@ -121,36 +112,20 @@ const useStyles = makeStyles((theme) => ({
     backgroundPosition: "center",
     backgroundSize: "cover",
     padding: 10,
-    height: 260,
+    height: 220,
     borderRadius: 10,
   },
 
   normalButton: {
-    color: "white",
+    color: "black",
     textTransform: "none",
     borderRadius: "12px",
-    width: "150px",
+    padding: "5px 30px 5px 30px",
     fontWeight: 500,
     background: `linear-gradient(to right,
-      #4527A0, #B2EBF2)`,
+      #ffffff, #e5e5e5)`,
     fontSize: 14,
     filter: `drop-shadow(0 0 0.2rem #00796B)`,
-    backgroundImage: "#AD1457",
-    marginLeft: 20,
-    "&:hover": {
-      background: "#7986CB",
-    },
-  },
-  normalButton1: {
-    color: "white",
-    textTransform: "none",
-    borderRadius: "12px",
-    width: "150px",
-    fontWeight: 500,
-    background: `linear-gradient(to right,
-      #4527A0,  #00796B)`,
-    fontSize: 14,
-    filter: `drop-shadow(0 0 0.2rem #D1C4E9)`,
     backgroundImage: "#AD1457",
     marginLeft: 20,
     "&:hover": {
@@ -161,7 +136,7 @@ const useStyles = makeStyles((theme) => ({
   nftCardButton: {
     display: "flex",
     justifyContent: "center",
-    paddingTop: 180,
+    paddingTop: 250,
     paddingRight: 12,
   },
   nftCardButton1: {
@@ -198,7 +173,7 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: 20,
   },
   nftCardRight: {
-    backgroundColor: "#15134A",
+    backgroundColor: "#303f9f",
     width: 350,
     height: 320,
     padding: 10,

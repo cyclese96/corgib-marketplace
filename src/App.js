@@ -25,7 +25,7 @@ export default function App() {
             <div className="col-md-2">
               <LeftBar />
             </div>
-            <div className="col-md-10">
+            <div className="col-md-10" style={{ backgroundColor: "#ffffff" }}>
               <Appbar />
               <Switch>
                 <Route exact path="/">

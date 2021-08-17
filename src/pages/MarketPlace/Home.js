@@ -1,7 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import TopCard from "../../components/TopCard";
-import Footer from "../../common/Footer";
 import TrendingItems from "./details/TrendingItems";
 import FeaturedItem from "../../components/FeaturedItems";
 import TopCreator from "../../components/TopCreator";
@@ -9,8 +8,6 @@ import CategoryList from "../../components/CategoryList";
 
 const useStyles = makeStyles((theme) => ({
   background: {
-    backgroundColor: theme.palette.market.primary,
-    color: theme.palette.market.textPrimary,
     minHeight: "100vh",
   },
 }));

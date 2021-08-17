@@ -13,13 +13,14 @@ const useStyles = makeStyles((theme) => ({
   },
 
   heading: {
-    color: theme.palette.pbr.textPrimary,
+    color: "#212121",
     fontSize: 20,
     fontWeight: 600,
     letterSpacing: "-0.1px",
     verticalAlign: "middle",
     wordSpacing: "0px",
     paddingBottom: 5,
+    paddingLeft: 10,
     [theme.breakpoints.down("md")]: {
       fontSize: 16,
       width: 200,
@@ -27,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   viewAll: {
-    color: theme.palette.market.textPrimary,
+    color: "#212121",
     fontWeight: 400,
     verticalAlign: "baseline",
     letterSpacing: "-0.8px",
@@ -35,13 +36,15 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: 20,
     fontSize: 16,
     textAlign: "right",
+    paddingRight: 5,
     [theme.breakpoints.down("md")]: {
       fontSize: 14,
     },
   },
 
   link: {
-    color: theme.palette.market.textPrimary,
+    paddingRight: 5,
+    color: "#212121",
     "&:hover": {
       color: theme.palette.market.highlight,
     },
@@ -51,7 +54,7 @@ const useStyles = makeStyles((theme) => ({
     padding: 15,
     borderRadius: 10,
     width: "100%",
-    background: `linear-gradient(to right,#1C1656, #1C1656)`,
+    background: `linear-gradient(to right,#eceff1, #eceff1)`,
     backgroundSize: "cover",
     backgroundPosition: "center",
     display: "flex",
@@ -65,12 +68,12 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   nftCard: {
-    backgroundColor: "#15134A",
-    height: 260,
-    width: 220,
+    backgroundColor: "#303f9f",
+    height: 340,
+    width: 240,
     padding: 10,
-    marginRight: 10,
-    marginLeft: 10,
+    marginRight: 15,
+    marginLeft: 15,
     borderRadius: 10,
   },
 
@@ -78,33 +81,32 @@ const useStyles = makeStyles((theme) => ({
     backgroundImage: `url('https://i.redd.it/r042t3k4d4b61.gif')`,
     backgroundPosition: "center",
     backgroundSize: "cover",
-    padding: 10,
-    height: 260,
+    height: 240,
     borderRadius: 10,
   },
 
   normalButton: {
-    color: "white",
+    color: "black",
     textTransform: "none",
     borderRadius: "12px",
-    width: "150px",
+    padding: "5px 30px 5px 30px",
     fontWeight: 500,
     background: `linear-gradient(to right,
-      #4527A0, #B2EBF2)`,
+      #f9f9f9, #ffffff)`,
     fontSize: 14,
     filter: `drop-shadow(0 0 0.2rem #00796B)`,
     backgroundImage: "#AD1457",
-    marginLeft: 20,
     "&:hover": {
-      background: "#7986CB",
+      background: "#C80C81",
     },
   },
 
   nftCardButton: {
     display: "flex",
-    justifyContent: "center",
-    paddingTop: 180,
-    paddingRight: 12,
+    flexDirection: "column",
+    justifyContent: "flex-end",
+    alignItems: "center",
+    height: 200,
   },
 
   textBox: {
@@ -114,6 +116,18 @@ const useStyles = makeStyles((theme) => ({
   cardText: {
     color: theme.palette.market.textPrimary,
     fontWeight: 400,
+    verticalAlign: "baseline",
+    letterSpacing: "-0.8px",
+    paddingBottom: 0,
+    fontSize: 16,
+    textAlign: "left",
+    [theme.breakpoints.down("md")]: {
+      fontSize: 14,
+    },
+  },
+  creatorName: {
+    color: theme.palette.market.highlight,
+    fontWeight: 600,
     verticalAlign: "baseline",
     letterSpacing: "-0.8px",
     paddingBottom: 0,
@@ -143,7 +157,7 @@ function FeaturedItem() {
             </div>
           </div>
           <div className={classes.mainCard}>
-            <Link to="/item-detail" className={classes.link}>
+            <Link to="/item-detail">
               <div className={classes.nftCard}>
                 <div className={classes.bgImage}>
                   <FavoriteBorderIcon />
@@ -153,16 +167,14 @@ function FeaturedItem() {
                 </div>
                 <div className={classes.textBox}>
                   <h6 className={classes.cardText}>Tommy Kill Hell</h6>
-                  <Link to="/profile" className={classes.link}>
-                    <h6>
-                      <strong>Carry Minati</strong>
-                    </h6>
+                  <Link to="/profile">
+                    <h6 className={classes.creatorName}>Amir Minati</h6>
                   </Link>
                 </div>
               </div>
             </Link>
 
-            <Link to="/item-detail" className={classes.link}>
+            <Link to="/item-detail">
               <div className={classes.nftCard}>
                 <div className={classes.bgImage}>
                   <FavoriteBorderIcon />
@@ -172,9 +184,7 @@ function FeaturedItem() {
                 </div>
                 <div className={classes.textBox}>
                   <h6 className={classes.cardText}>Tommy Kill Hell</h6>
-                  <h6>
-                    <strong>Carry Minati</strong>
-                  </h6>
+                  <h6 className={classes.creatorName}>Carry Minati</h6>
                 </div>
               </div>
             </Link>
