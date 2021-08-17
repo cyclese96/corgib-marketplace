@@ -47,11 +47,13 @@ function a11yProps(index) {
 
 const useStyles = makeStyles((theme) => ({
   background: {
-    backgroundColor: theme.palette.market.primary,
     color: theme.palette.market.textPrimary,
     minHeight: "100vh",
     padding: 30,
     width: "100%",
+    [theme.breakpoints.down("md")]: {
+      padding: 5,
+    },
   },
 
   heading: {
@@ -65,21 +67,6 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("md")]: {
       fontSize: 18,
     },
-  },
-  para: {
-    color: theme.palette.market.textPrimary,
-    fontWeight: 400,
-    verticalAlign: "baseline",
-    letterSpacing: "-0.8px",
-    width: 400,
-    paddingBottom: 20,
-    fontSize: 16,
-    [theme.breakpoints.down("md")]: {
-      fontSize: 14,
-    },
-  },
-  textContainer: {
-    padding: 20,
   },
   actionButton: {
     color: "white",
@@ -102,26 +89,13 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 14,
     filter: `drop-shadow(0 0 0.1rem #1a237e)`,
   },
-  viewAll: {
-    color: theme.palette.market.textPrimary,
-    fontWeight: 400,
-    verticalAlign: "baseline",
-    letterSpacing: "-0.8px",
-    width: 400,
-    paddingBottom: 20,
-    fontSize: 16,
-    textAlign: "right",
-    [theme.breakpoints.down("md")]: {
-      fontSize: 14,
-    },
-  },
   mainCard: {
     backgroundColor: "white",
     height: "100%",
     padding: 15,
     borderRadius: 30,
     width: "100%",
-    background: `linear-gradient(to right,#1C1656, #1C1656)`,
+    background: `linear-gradient(to right,#ede7f6, #ede7f6)`,
     backgroundSize: "cover",
     backgroundPosition: "center",
     display: "flex",
@@ -132,19 +106,36 @@ const useStyles = makeStyles((theme) => ({
       flexDirection: "column",
       justifyContent: "start",
       height: "100%",
+      width: 350,
+      padding: 10,
     },
   },
   sectionCard: {
-    backgroundColor: "#15134A",
-    width: 600,
-    minHeight: 600,
+    backgroundColor: "#303f9f",
+    width: 550,
+    height: 550,
     padding: 10,
     marginRight: 10,
     marginLeft: 10,
-    marginBottom: 20,
     borderRadius: 10,
+    [theme.breakpoints.down("md")]: {
+      width: 320,
+      height: 320,
+    },
   },
-
+  sectionCardText: {
+    backgroundColor: "#303f9f",
+    width: 550,
+    minHeight: 550,
+    padding: 10,
+    marginRight: 10,
+    marginLeft: 10,
+    borderRadius: 10,
+    [theme.breakpoints.down("md")]: {
+      width: 320,
+      marginTop: 20,
+    },
+  },
   textBox: {
     padding: 20,
   },
@@ -156,9 +147,8 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: 0,
     fontSize: 28,
     textAlign: "left",
-
     [theme.breakpoints.down("md")]: {
-      fontSize: 20,
+      fontSize: 18,
     },
   },
   creatorName: {
@@ -182,6 +172,9 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     borderRadius: "4%",
     marginBottom: 20,
+    [theme.breakpoints.down("md")]: {
+      height: 300,
+    },
   },
   highlight: {
     color: `rgba(89, 210, 188, 1)`,
@@ -192,17 +185,7 @@ const useStyles = makeStyles((theme) => ({
     color: "white",
     backgroundColor: "#222831",
   },
-  profileNftCard: {
-    backgroundColor: "#9DC6A7",
-    width: 300,
-    padding: 10,
-    marginRight: 10,
-    marginLeft: 10,
-    marginBottom: 20,
-    borderRadius: 10,
-    display: "flex",
-    justifyContent: "space-between",
-  },
+
   profileBgImage: {
     backgroundImage: `url('https://www.designesia.com/themes/gigaland/images/author/author-5.jpg')`,
     backgroundPosition: "center",
@@ -216,7 +199,7 @@ const useStyles = makeStyles((theme) => ({
   profileTextBox: {
     paddingLeft: 15,
   },
-  profilCardText: {
+  profileCardText: {
     color: "white",
     fontWeight: 400,
     verticalAlign: "baseline",
@@ -225,19 +208,8 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 16,
     textAlign: "left",
     [theme.breakpoints.down("md")]: {
-      fontSize: 14,
+      fontSize: 12,
     },
-  },
-  profileButton: {
-    color: "white",
-    textTransform: "none",
-    borderRadius: "12px",
-    padding: "8px 16px 8px 16px",
-    fontWeight: 500,
-    marginRight: 12,
-    background: `linear-gradient(to right,#7b1fa2, #4a148c)`,
-    fontSize: 14,
-    filter: `drop-shadow(0 0 0.1rem #4a148c)`,
   },
   profileCardText: {
     color: theme.palette.market.textPrimary,
@@ -287,9 +259,7 @@ function ItemDetails() {
             </div>
           </div>
           <div className="col-md-6">
-            {" "}
-            <div className={classes.sectionCard}>
-              {" "}
+            <div className={classes.sectionCardText}>
               <div className={classes.textBox}>
                 <h6 className={classes.nftName}>
                   Tommy Kill Hell NFT Collection 2017

@@ -2,8 +2,8 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
-  auctionCard: {
-    backgroundColor: "#15134A",
+  mainCard: {
+    backgroundColor: "#303f9f",
     width: 260,
     height: 350,
     padding: 5,
@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   subHeading: {
-    color: `grey`,
+    color: `white`,
     fontWeight: 400,
     verticalAlign: "baseline",
     letterSpacing: "0.8px",
@@ -57,19 +57,17 @@ function CategoryCard() {
   return (
     <div>
       <div className={classes.mainCard}>
-        <div className={classes.auctionCard}>
-          <div className={classes.bgImage}>
-            <div className={classes.textBox}>
-              <h6 className={classes.cardText}>
-                <strong>Dragon of Wonder Request</strong>
-              </h6>
-              <h6 className={classes.subHeading}>
-                <strong>Highest Bid 1/1</strong>
-              </h6>
-              <h6 className={classes.subHeading}>
-                <strong>Ether</strong>
-              </h6>
-            </div>
+        <div className={classes.bgImage}>
+          <div className={classes.textBox}>
+            <h6 className={classes.cardText}>
+              <strong>Dragon of Wonder Request</strong>
+            </h6>
+            <h6 className={classes.subHeading}>
+              <strong>Highest Bid 1/1</strong>
+            </h6>
+            <h6 className={classes.subHeading}>
+              <strong>Ether</strong>
+            </h6>
           </div>
         </div>
       </div>

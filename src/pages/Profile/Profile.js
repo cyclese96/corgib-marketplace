@@ -7,18 +7,16 @@ import FacebookIcon from "@material-ui/icons/Facebook";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import { Link } from "react-router-dom";
+import ProfileCard from "../../common/ProfileCard";
 
 const useStyles = makeStyles((theme) => ({
   background: {
-    backgroundColor: theme.palette.market.primary,
     color: theme.palette.market.textPrimary,
     minHeight: "100vh",
     paddingLeft: 30,
     paddingRight: 30,
-
     width: "100%",
   },
-
   heading: {
     color: theme.palette.pbr.textPrimary,
     fontSize: 20,
@@ -36,26 +34,11 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 400,
     verticalAlign: "baseline",
     letterSpacing: "-0.8px",
-
     paddingBottom: 20,
     fontSize: 14,
     [theme.breakpoints.down("md")]: {
       fontSize: 13,
     },
-  },
-  textContainer: {
-    padding: 20,
-  },
-  actionButton: {
-    color: "white",
-    textTransform: "none",
-    borderRadius: "12px",
-    padding: "8px 16px 8px 16px",
-    fontWeight: 500,
-    marginRight: 12,
-    background: `linear-gradient(to right,#7b1fa2, #4a148c)`,
-    fontSize: 14,
-    filter: `drop-shadow(0 0 0.1rem #4a148c)`,
   },
   normalButton: {
     color: "white",
@@ -67,25 +50,12 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 14,
     filter: `drop-shadow(0 0 0.1rem #1a237e)`,
   },
-  viewAll: {
-    color: theme.palette.market.textPrimary,
-    fontWeight: 400,
-    verticalAlign: "baseline",
-    letterSpacing: "-0.8px",
-    width: 400,
-    paddingBottom: 20,
-    fontSize: 16,
-    textAlign: "right",
-    [theme.breakpoints.down("md")]: {
-      fontSize: 14,
-    },
-  },
   mainCard: {
     backgroundColor: "white",
     height: "100%",
     borderRadius: 10,
     width: "100%",
-    background: `linear-gradient(to right,#1C1656, #1C1656)`,
+    background: `linear-gradient(to right,#ede7f6, #ede7f6)`,
     backgroundSize: "cover",
     backgroundPosition: "center",
     display: "flex",
@@ -93,7 +63,6 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "flex-start",
     alignItems: "center",
     marginTop: 30,
-
     [theme.breakpoints.down("md")]: {
       flexDirection: "column",
       justifyContent: "start",
@@ -102,7 +71,7 @@ const useStyles = makeStyles((theme) => ({
   },
   sectionCard1: {
     marginTop: -120,
-    backgroundColor: "#15134A",
+    backgroundColor: "#303f9f",
     height: 550,
     width: "100%",
     marginRight: 10,
@@ -112,13 +81,13 @@ const useStyles = makeStyles((theme) => ({
   },
   sectionCard2: {
     marginTop: 20,
-    // backgroundColor: '#15134A',
     width: "100%",
     padding: 10,
     marginRight: 10,
     marginLeft: 10,
     marginBottom: 20,
     borderRadius: 10,
+    [theme.breakpoints.down("md")]: {},
   },
   profileImage: {
     backgroundImage: `url('https://c4.wallpaperflare.com/wallpaper/629/360/993/moneyheist-lacasadepapel-spain-the-professor-hd-wallpaper-thumb.jpg')`,
@@ -130,13 +99,8 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "45%",
     marginBottom: 20,
   },
-
   textBox: {
     textAlign: "center",
-  },
-  textBoxMain: {
-    textAlign: "center",
-    paddingTop: 10,
   },
   cardText: {
     color: theme.palette.market.textPrimary,
@@ -146,7 +110,6 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: 0,
     fontSize: 16,
     textAlign: "center",
-
     [theme.breakpoints.down("md")]: {
       fontSize: 14,
     },
@@ -159,7 +122,6 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: 0,
     fontSize: 13,
     textAlign: "center",
-
     [theme.breakpoints.down("md")]: {
       fontSize: 12,
     },
@@ -176,30 +138,6 @@ const useStyles = makeStyles((theme) => ({
     filter: `drop-shadow(0 0 0.9rem #1a237e)`,
   },
 
-  nftCard: {
-    backgroundColor: "#15134A",
-    height: "100%",
-    width: 300,
-    padding: 10,
-    marginRight: 10,
-    marginLeft: 10,
-    borderRadius: 10,
-
-    filter: `drop-shadow(0 0 0.1rem #4a148c)`,
-    [theme.breakpoints.down("md")]: {
-      width: 240,
-      height: 240,
-      marginBottom: 10,
-    },
-  },
-  bgImage: {
-    backgroundImage: `url('https://i1.sndcdn.com/avatars-000298736131-6gygpv-t500x500.jpg')`,
-    backgroundPosition: "center",
-    backgroundSize: "cover",
-    padding: 10,
-    height: 250,
-    borderRadius: 10,
-  },
   iconWrapper: {
     color: "white",
     display: "flex",
@@ -210,6 +148,20 @@ const useStyles = makeStyles((theme) => ({
     "&:hover": {
       color: "#1EAE98",
     },
+  },
+  tab: {
+    backgroundColor: "white",
+    color: "black",
+    padding: "6px 12px 6px 12px",
+    borderRadius: "30px",
+    marginRight: 10,
+    [theme.breakpoints.down("md")]: {
+      fontSize: 10,
+    },
+  },
+  tabs: {
+    display: "flex",
+    justifyContent: "space-between",
   },
 }));
 
@@ -280,111 +232,49 @@ function Profile() {
           </div>
           <div className="col-md-9">
             <div className={classes.sectionCard2}>
-              <div className="mt-3 d-flex justify-content-start">
-                <Button>
-                  <div
-                    style={{
-                      backgroundColor: "white",
-                      color: "black",
-                      padding: "6px 12px 6px 12px",
-                      borderRadius: "30px",
-                      marginRight: 10,
-                    }}
-                  >
-                    <span style={{ fontWeight: 500, fontSize: 14 }}>
-                      Collectibles
-                    </span>
-                  </div>
-                </Button>
-                <Button>
-                  {" "}
-                  <div
-                    style={{
-                      backgroundColor: "white",
-                      color: "black",
-                      padding: "6px 12px 6px 12px",
-                      borderRadius: "30px",
-                      marginRight: 10,
-                    }}
-                  >
-                    <span style={{ fontWeight: 500, fontSize: 14 }}>
-                      {" "}
-                      On Sale
-                    </span>
-                  </div>
-                </Button>
-                <Button>
-                  {" "}
-                  <div
-                    style={{
-                      backgroundColor: "white",
-                      color: "black",
-                      padding: "6px 12px 6px 12px",
-                      borderRadius: "30px",
-                      marginRight: 10,
-                    }}
-                  >
-                    <span style={{ fontWeight: 500, fontSize: 14 }}>
-                      Created
-                    </span>
-                  </div>
-                </Button>
-                <Button>
-                  <div
-                    style={{
-                      backgroundColor: "white",
-                      color: "black",
-                      padding: "6px 12px 6px 12px",
-                      borderRadius: "30px",
-                      marginRight: 10,
-                    }}
-                  >
-                    <span style={{ fontWeight: 500, fontSize: 14 }}>
-                      {" "}
-                      Likes
-                    </span>
-                  </div>
-                </Button>
+              <div className="mt-3 d-flex justify-content-around">
+                <div className={classes.tabs}>
+                  <Button>
+                    <div className={classes.tab}>
+                      <div
+                        style={{
+                          fontWeight: 400,
+                          fontSize: 14,
+                        }}
+                      >
+                        OnSale
+                      </div>
+                    </div>
+                  </Button>
+                  <Button>
+                    <div className={classes.tab}>
+                      <div style={{ fontWeight: 400, fontSize: 14 }}>
+                        Created
+                      </div>
+                    </div>
+                  </Button>
+                  <Button>
+                    <div className={classes.tab}>
+                      <div style={{ fontWeight: 400, fontSize: 14 }}>Likes</div>
+                    </div>
+                  </Button>
+                </div>
               </div>
 
               <div className="row mt-3">
                 <div className="col-md-4">
                   <div className="mb-3">
-                    <div className={classes.nftCard}>
-                      <div className={classes.bgImage}></div>
-                      <div className={classes.textBoxMain}>
-                        <h6 className={classes.cardText}>Tommy Kill Hell</h6>
-                        <h6>
-                          <strong>Carry Minati</strong>
-                        </h6>
-                      </div>
-                    </div>
+                    <ProfileCard />
                   </div>
                 </div>
                 <div className="col-md-4">
                   <div className="mb-3">
-                    <div className={classes.nftCard}>
-                      <div className={classes.bgImage}></div>
-                      <div className={classes.textBoxMain}>
-                        <h6 className={classes.cardText}>Tommy Kill Hell</h6>
-                        <h6>
-                          <strong>Carry Minati</strong>
-                        </h6>
-                      </div>
-                    </div>
+                    <ProfileCard />
                   </div>
                 </div>{" "}
                 <div className="col-md-4">
                   <div className="mb-3">
-                    <div className={classes.nftCard}>
-                      <div className={classes.bgImage}></div>
-                      <div className={classes.textBoxMain}>
-                        <h6 className={classes.cardText}>Tommy Kill Hell</h6>
-                        <h6>
-                          <strong>Carry Minati</strong>
-                        </h6>
-                      </div>
-                    </div>
+                    <ProfileCard />
                   </div>
                 </div>{" "}
               </div>

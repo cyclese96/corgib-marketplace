@@ -12,18 +12,19 @@ import clsx from "clsx";
 
 const useStyles = makeStyles((theme) => ({
   background: {
-    backgroundColor: theme.palette.market.primary,
     color: theme.palette.market.textPrimary,
     minHeight: "100vh",
     padding: 30,
     width: "100%",
+    [theme.breakpoints.down("sm")]: {
+      padding: 10,
+    },
   },
   multilineColor: {
     color: "white",
   },
   noBorder: {
     border: "none",
-
     color: "white",
   },
   inputLabel: {
@@ -75,6 +76,7 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "left",
     [theme.breakpoints.down("md")]: {
       fontSize: 14,
+      width: "100%",
     },
   },
   heading: {
@@ -101,65 +103,41 @@ const useStyles = makeStyles((theme) => ({
       fontSize: 14,
     },
   },
-
-  textContainer: {
-    padding: 20,
-  },
   createButton: {
     color: "white",
     textTransform: "none",
     borderRadius: "30px",
     padding: "12px 20px 12px 20px",
     fontWeight: 600,
-
     background: `linear-gradient(to right,#7b1fa2, #4a148c)`,
     fontSize: 18,
     filter: `drop-shadow(0 0 0.1rem #4a148c)`,
   },
   previewImage: {
     borderRadius: "10px",
-  },
-  normalButton: {
-    color: "white",
-    textTransform: "none",
-    borderRadius: "12px",
-    padding: "8px 16px 8px 16px",
-    fontWeight: 500,
-    background: `linear-gradient(to right,#3f51b5, #1a237e)`,
-    fontSize: 14,
-    filter: `drop-shadow(0 0 0.1rem #1a237e)`,
-  },
-  viewAll: {
-    color: theme.palette.market.textPrimary,
-    fontWeight: 400,
-    verticalAlign: "baseline",
-    letterSpacing: "-0.8px",
-    width: 400,
-    paddingBottom: 20,
-    fontSize: 16,
-    textAlign: "right",
     [theme.breakpoints.down("md")]: {
-      fontSize: 14,
+      height: 200,
     },
   },
+
   mainCard: {
     height: "100%",
     padding: 25,
     paddingLeft: 45,
     borderRadius: 30,
     width: "100%",
-    background: `linear-gradient(to right,#1C1656, #1C1656)`,
+    background: `#303f9f`,
     backgroundSize: "cover",
     backgroundPosition: "center",
-
     [theme.breakpoints.down("md")]: {
       flexDirection: "column",
       justifyContent: "start",
       height: "100%",
+      padding: 20,
     },
   },
   sectionCard: {
-    backgroundColor: "#15134A",
+    backgroundColor: "#303f9f",
     width: 600,
     minHeight: 400,
     padding: 10,
@@ -167,23 +145,6 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: 10,
     marginBottom: 20,
     borderRadius: 10,
-  },
-
-  textBox: {
-    padding: 20,
-  },
-  nftName: {
-    color: theme.palette.market.textPrimary,
-    fontWeight: 600,
-    verticalAlign: "baseline",
-    letterSpacing: "-0.8px",
-    paddingBottom: 0,
-    fontSize: 28,
-    textAlign: "left",
-
-    [theme.breakpoints.down("md")]: {
-      fontSize: 20,
-    },
   },
   creatorName: {
     color: theme.palette.market.textPrimary,
@@ -215,6 +176,10 @@ const useStyles = makeStyles((theme) => ({
     width: 300,
     borderRadius: 7,
     border: "1px solid #eeeeee",
+    [theme.breakpoints.down("md")]: {
+      height: 300,
+      width: 250,
+    },
   },
 }));
 

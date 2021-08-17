@@ -8,7 +8,7 @@ import EmailIcon from "@material-ui/icons/Email";
 
 const useStyles = makeStyles((theme) => ({
   background: {
-    backgroundColor: theme.palette.market.primary,
+    backgroundColor: `#303f9f`,
     color: theme.palette.market.textPrimary,
     padding: 30,
     display: "flex",

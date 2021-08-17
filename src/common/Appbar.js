@@ -357,19 +357,21 @@ function Appbar({
           <div className={classes.sectionMobile}>
             <div className="d-flex flex-row  justify-content-start align-items-center">
               <div style={{ paddingTop: 5 }}>
-                <img src="/corgi.png" alt="logo" height="55px" />{" "}
-              </div>{" "}
-              <div
-                style={{
-                  fontWeight: 600,
-                  color: "#e5e5e5",
-                  fontSize: 20,
-                  letterSpacing: "-1px",
-                  paddingTop: 5,
-                }}
-              >
-                Corgib <span className={classes.highlight}>MarketPlace</span>
+                <img src="/corgi.png" alt="logo" height="55px" />
               </div>
+              <Link to="/">
+                <div
+                  style={{
+                    fontWeight: 600,
+                    color: "#212121",
+                    fontSize: 20,
+                    letterSpacing: "-1px",
+                    paddingTop: 5,
+                  }}
+                >
+                  Corgib <span className={classes.highlight}>MarketPlace</span>
+                </div>
+              </Link>
             </div>
 
             <Dialog

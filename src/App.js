@@ -40,9 +40,6 @@ export default function App() {
                 <Route exact path="/create-nft">
                   <CreateNFT />
                 </Route>
-                <Route exact path="/learn">
-                  <LearnHow />
-                </Route>
                 <Route exact path="/all-items">
                   <AllItems />
                 </Route>

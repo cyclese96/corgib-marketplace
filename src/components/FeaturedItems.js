@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
 import SingleCard from "./SingleCard";
@@ -24,6 +24,21 @@ const useStyles = makeStyles((theme) => ({
       width: 200,
     },
   },
+  headingRecently: {
+    color: "#212121",
+    fontSize: 20,
+    fontWeight: 600,
+    letterSpacing: "-0.1px",
+    verticalAlign: "middle",
+    wordSpacing: "0px",
+    paddingBottom: 5,
+    paddingLeft: 10,
+    [theme.breakpoints.down("md")]: {
+      fontSize: 16,
+      width: 200,
+      paddingTop: 60,
+    },
+  },
 
   viewAll: {
     color: "#212121",
@@ -39,7 +54,21 @@ const useStyles = makeStyles((theme) => ({
       fontSize: 14,
     },
   },
-
+  viewAllRecently: {
+    color: "#212121",
+    fontWeight: 400,
+    verticalAlign: "baseline",
+    letterSpacing: "-0.8px",
+    width: 400,
+    paddingBottom: 20,
+    fontSize: 16,
+    textAlign: "right",
+    paddingRight: 5,
+    [theme.breakpoints.down("md")]: {
+      fontSize: 14,
+      paddingTop: 60,
+    },
+  },
   link: {
     paddingRight: 5,
     color: "#212121",
@@ -52,7 +81,7 @@ const useStyles = makeStyles((theme) => ({
     padding: 15,
     borderRadius: 10,
     width: "100%",
-    background: `linear-gradient(to right,#eceff1, #eceff1)`,
+    background: `linear-gradient(to right,#ede7f6, #ede7f6)`,
     backgroundSize: "cover",
     backgroundPosition: "center",
     display: "flex",
@@ -65,81 +94,10 @@ const useStyles = makeStyles((theme) => ({
       height: "100%",
     },
   },
-  nftCard: {
-    backgroundColor: "#303f9f",
-    height: 340,
-    width: 240,
-    padding: 10,
-    marginRight: 15,
-    marginLeft: 15,
-    borderRadius: 10,
-  },
-
-  bgImage: {
-    backgroundImage: `url('https://i.redd.it/r042t3k4d4b61.gif')`,
-    backgroundPosition: "center",
-    backgroundSize: "cover",
-    height: 240,
-    borderRadius: 10,
-  },
-
-  normalButton: {
-    color: "black",
-    textTransform: "none",
-    borderRadius: "12px",
-    padding: "5px 30px 5px 30px",
-    fontWeight: 500,
-    background: `linear-gradient(to right,
-      #f9f9f9, #ffffff)`,
-    fontSize: 14,
-    filter: `drop-shadow(0 0 0.2rem #00796B)`,
-    backgroundImage: "#AD1457",
-    "&:hover": {
-      background: "#C80C81",
-    },
-  },
-
-  nftCardButton: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "flex-end",
-    alignItems: "center",
-    height: 200,
-  },
-
-  textBox: {
-    paddingTop: 10,
-    paddingLeft: 5,
-  },
-  cardText: {
-    color: theme.palette.market.textPrimary,
-    fontWeight: 400,
-    verticalAlign: "baseline",
-    letterSpacing: "-0.8px",
-    paddingBottom: 0,
-    fontSize: 16,
-    textAlign: "left",
-    [theme.breakpoints.down("md")]: {
-      fontSize: 14,
-    },
-  },
-  creatorName: {
-    color: theme.palette.market.highlight,
-    fontWeight: 600,
-    verticalAlign: "baseline",
-    letterSpacing: "-0.8px",
-    paddingBottom: 0,
-    fontSize: 16,
-    textAlign: "left",
-    [theme.breakpoints.down("md")]: {
-      fontSize: 14,
-    },
-  },
 }));
 
 function FeaturedItem() {
   const classes = useStyles();
-
   return (
     <div className={classes.background}>
       <div className="row">
@@ -162,9 +120,9 @@ function FeaturedItem() {
         <div className="col-md-6">
           <div className="d-flex justify-content-between">
             <div>
-              <h2 className={classes.heading}>Recently Added</h2>
+              <h2 className={classes.headingRecently}>Recently Added</h2>
             </div>
-            <div className={classes.viewAll}>
+            <div className={classes.viewAllRecently}>
               <Link to="/all-items" className={classes.link}>
                 View All
               </Link>

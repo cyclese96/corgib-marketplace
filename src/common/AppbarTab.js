@@ -8,9 +8,11 @@ import PropTypes from "prop-types";
 import useTabs from "../hooks/useTabs";
 import { Link } from "react-router-dom";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
-    // marginBottom: 50,
+    [theme.breakpoints.down("md")]: {
+      display: "none",
+    },
   },
   default_tabStyle: {
     color: "black",
@@ -22,7 +24,7 @@ const useStyles = makeStyles({
     color: "#C80C81",
     fontWeight: 700,
   },
-});
+}));
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -75,7 +77,7 @@ export default function AppbarTab() {
       >
         <Tab
           component={Link}
-          to={"/"}
+          to={"/all-items"}
           className={
             value === 0 ? classes.active_tabStyle : classes.default_tabStyle
           }

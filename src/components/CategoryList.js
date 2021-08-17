@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
   },
 
-  cardWrapper: {
+  mainCard: {
     borderTop: 10,
     borderBottom: 10,
     borderColor: "red",
@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     padding: 15,
     borderRadius: 30,
     width: "100%",
-    background: `linear-gradient(to right,#fce4ec, #fce4ec)`,
+    background: `linear-gradient(to right,#ede7f6, #ede7f6)`,
     backgroundSize: "cover",
     backgroundPosition: "center",
     display: "flex",
@@ -264,7 +264,7 @@ function CategoryList({ getItems, items, categories }) {
         </div>
       </div>
       <div className={classes.background}>
-        <div className={classes.cardWrapper}>
+        <div className={classes.mainCard}>
           {/* Infinite scroll will be implemented */}
           <CategoryCard />
           <CategoryCard />
@@ -273,7 +273,7 @@ function CategoryList({ getItems, items, categories }) {
         </div>
       </div>
       <div className={classes.background}>
-        <div className={classes.cardWrapper}>
+        <div className={classes.mainCard}>
           {/* Infinite scroll will be implemented */}
           <CategoryCard />
           <CategoryCard />

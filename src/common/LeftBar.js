@@ -3,14 +3,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Button, Tabs } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import Typography from "@material-ui/core/Typography";
-import MusicNoteIcon from "@material-ui/icons/MusicNote";
-import VideoCallIcon from "@material-ui/icons/VideoCall";
-import SportsEsportsIcon from "@material-ui/icons/SportsEsports";
-import FavoriteIcon from "@material-ui/icons/Favorite";
-import AccountBalanceIcon from "@material-ui/icons/AccountBalance";
-import AddPhotoAlternateIcon from "@material-ui/icons/AddPhotoAlternate";
-import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
-import ArchiveIcon from "@material-ui/icons/Archive";
 
 const useStyles = makeStyles((theme) => ({
   background: {
@@ -20,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
     padding: 10,
     width: "100%",
     [theme.breakpoints.down("md")]: {
-      height: "80vh",
+      display: "none",
     },
   },
   mainCard: {
@@ -33,19 +25,6 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     justifyContent: "flex-start",
     alignItems: "flex-start",
-  },
-  mainCard1: {
-    backgroundColor: "#1B1450",
-    height: "100%",
-    borderRadius: 10,
-    width: "95%",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-    marginTop: 20,
-    paddingTop: 20,
-    paddingBottom: 20,
   },
 
   tabs: {
@@ -66,18 +45,6 @@ const useStyles = makeStyles((theme) => ({
     display: "block",
     color: "#212121",
     fontSize: 18,
-    [theme.breakpoints.down("md")]: {
-      display: "none",
-    },
-  },
-  title1: {
-    display: "block",
-    color: "#212121",
-    fontSize: 12,
-    paddingLeft: 10,
-    [theme.breakpoints.down("md")]: {
-      display: "none",
-    },
   },
   logo: {
     fontWeight: 600,
@@ -97,10 +64,12 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 500,
     background: `linear-gradient(to right,#e91e63,#ec407a )`,
     fontSize: 14,
-
     marginLeft: 20,
     marginBottom: 30,
     marginTop: 20,
+    [theme.breakpoints.down("md")]: {
+      display: "none",
+    },
   },
   icon: {
     color: "white",
@@ -114,10 +83,10 @@ function LeftBar() {
       <div className={classes.mainCard}>
         <div className={classes.title}>
           <Link to="/">
-            <div className="d-flex flex-row  justify-content-start align-items-center">
+            <div className="d-flex flex-row  justify-content-start align-items-center g-0">
               <div style={{ paddingTop: 5 }}>
-                <img src="/corgi.png" alt="logo" height="50px" />{" "}
-              </div>{" "}
+                <img src="/corgi.png" alt="logo" height="50px" />
+              </div>
               <div className={classes.logo}>
                 Corgib <span style={{ color: "#c51162" }}>MarketPlace</span>
               </div>

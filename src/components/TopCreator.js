@@ -7,6 +7,9 @@ const useStyles = makeStyles((theme) => ({
   background: {
     padding: 20,
     width: "100%",
+    [theme.breakpoints.down("md")]: {
+      paddingTop: 80,
+    },
   },
 
   heading: {
@@ -58,19 +61,6 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 14,
     filter: `drop-shadow(0 0 0.1rem #1a237e)`,
     marginLeft: 20,
-  },
-  viewAll: {
-    color: theme.palette.market.textPrimary,
-    fontWeight: 400,
-    verticalAlign: "baseline",
-    letterSpacing: "-0.8px",
-    width: 400,
-    paddingBottom: 20,
-    fontSize: 16,
-    textAlign: "right",
-    [theme.breakpoints.down("md")]: {
-      fontSize: 14,
-    },
   },
   mainCard: {
     display: "flex",
@@ -138,7 +128,6 @@ function TopCreator() {
             <div>
               <h2 className={classes.heading}>Top Creators</h2>
             </div>
-            <div className={classes.viewAll}></div>
           </div>
           <div className={classes.mainCard}>
             <div>

@@ -10,6 +10,9 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "flex-end",
     marginBottom: "-500",
+    [theme.breakpoints.down("sm")]: {
+      padding: 10,
+    },
   },
   card: {
     backgroundColor: "#f8bbd0",
