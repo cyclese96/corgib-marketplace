@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
-import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
-import RecentlyAdded from "./RecentlyItems";
-import FeaturedCard from "./FeaturedCard";
+import SingleCard from "./SingleCard";
 
 const useStyles = makeStyles((theme) => ({
   background: {
@@ -158,12 +155,25 @@ function FeaturedItem() {
             </div>
           </div>
           <div className={classes.mainCard}>
-            <FeaturedCard />
-            <FeaturedCard />
+            <SingleCard />
+            <SingleCard />
           </div>
         </div>
         <div className="col-md-6">
-          <RecentlyAdded />
+          <div className="d-flex justify-content-between">
+            <div>
+              <h2 className={classes.heading}>Recently Added</h2>
+            </div>
+            <div className={classes.viewAll}>
+              <Link to="/all-items" className={classes.link}>
+                View All
+              </Link>
+            </div>
+          </div>
+          <div className={classes.mainCard}>
+            <SingleCard />
+            <SingleCard />
+          </div>
         </div>
       </div>
     </div>
