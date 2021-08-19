@@ -4,11 +4,11 @@ var router = express.Router();
 var UserDao = require("../dao/user");
 
 // GET current user details based on Address
-router.get("/user/:address/", async (req, res, next) => {
-  const userAddress = req.params.address;
+router.get("/user/:username", async (req, res, next) => {
+  const userName = req.params.username;
 
   try {
-    const data = await UserDao.getUserByAddress(userAddress);
+    const data = await UserDao.getUserByAddress(userName);
     return res.status(200).send(data);
   } catch (error) {
     return res.status(400).send("error");
@@ -32,17 +32,17 @@ router.post("/user", async (req, res, next) => {
 });
 
 // PATCH update user details based on data
-router.patch("/user/username", async (req, res, next) => {
-  var userData = {
-    username: req.body.username ? req.body.username : "",
-    address: req.body.address,
-  };
+// router.patch("/user/username", async (req, res, next) => {
+//   var userData = {
+//     username: req.body.username ? req.body.username : "",
+//     address: req.body.address,
+//   };
 
-  try {
-    const data = await UserDao.updateUsername(userData);
-    return res.status(200).send(data);
-  } catch (error) {
-    return res.status(400).send("error");
-  }
-});
+//   try {
+//     const data = await UserDao.updateUsername(userData);
+//     return res.status(200).send(data);
+//   } catch (error) {
+//     return res.status(400).send("error");
+//   }
+// });
 module.exports = router;

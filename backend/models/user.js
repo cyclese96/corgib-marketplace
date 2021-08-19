@@ -1,16 +1,14 @@
 var mongoose = require("mongoose");
 
 var UserModel = new mongoose.Schema({
+  username: {
+    type: String,
+  },
   address: {
     type: String,
     required: true,
   },
-  username: {
-    type: String,
-  },
-  avatar: {
-    type: String,
-  },
+
   createdDate: {
     type: Date,
     required: true,

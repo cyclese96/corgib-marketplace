@@ -5,19 +5,19 @@ var UserModel = require("../models/user");
 const limit = 15;
 
 const userDao = {
-  async getUserByAddress(address) {
-    return await UserModel.findOne({ address });
+  async getUserByAddress(username) {
+    return await UserModel.findOne({ user: username });
   },
 
   async createUser(userData) {
     let userCount = await UserModel.find({
-      address: userData.address,
+      user: userData.username,
     }).countDocuments();
     if (userCount === 0) {
       await UserModel.insertMany([userData]);
     }
 
-    return await UserModel.findOne({ address: userData.address });
+    return await UserModel.findOne({ user: userData.username });
   },
 };
 
