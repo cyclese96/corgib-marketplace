@@ -9,8 +9,10 @@ router.get("/user/:username", async (req, res, next) => {
 
   try {
     const data = await UserDao.getUserByAddress(userName);
+
     return res.status(200).send(data);
   } catch (error) {
+    console.log(error);
     return res.status(400).send("error");
   }
 });
@@ -20,13 +22,13 @@ router.post("/user", async (req, res, next) => {
   var userData = {
     address: req.body.address,
     username: req.body.username ? req.body.username : "",
-    avatar: req.body.avatar ? req.body.avatar : "",
   };
 
   try {
     const data = await UserDao.createUser(userData);
     return res.status(200).send(data);
   } catch (error) {
+    console.log(error);
     return res.status(400).send("error");
   }
 });

@@ -1,10 +1,6 @@
 var mongoose = require("mongoose");
 
 var ItemModel = new mongoose.Schema({
-  id: {
-    type: Number,
-    required: true,
-  },
   title: {
     type: String,
   },
@@ -30,4 +26,4 @@ var ItemModel = new mongoose.Schema({
 });
 const Item = mongoose.model("Item", ItemModel, "Item");
 
-module.exports = User;
+module.exports = Item;

@@ -8,6 +8,8 @@ var mongoose = require("mongoose");
 var config = require("./configSys");
 
 var userRouter = require("./routes/userRouter");
+var itemRouter = require("./routes/ItemRouter");
+const { IndeterminateCheckBoxTwoTone } = require("@material-ui/icons");
 
 var app = express();
 // view engine setup
@@ -32,6 +34,7 @@ mongoose.connect(config.MONGODB_URL, {
 });
 
 app.use("/", userRouter);
+app.use("/", itemRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
