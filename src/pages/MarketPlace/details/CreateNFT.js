@@ -8,7 +8,8 @@ import {
 } from "@material-ui/core";
 import { ArrowBack } from "@material-ui/icons";
 import { Link } from "react-router-dom";
-import clsx from "clsx";
+import { connect } from "react-redux";
+import { createItem } from "../../../actions/itemActions";
 
 const useStyles = makeStyles((theme) => ({
   background: {
@@ -190,9 +191,31 @@ const theme = createMuiTheme({
     },
   },
 });
-function CreateNFT() {
+function CreateNFT({ createItem, auth: { user } }) {
   const classes = useStyles();
 
+  const [title, setTitle] = useState("");
+  const [category, setCatogory] = useState("");
+  const [description, setDescription] = useState("");
+  const [price, setPrice] = useState("");
+  const [royalties, setRoyalties] = useState("");
+
+  const createNft = async () => {
+    console.log(
+      "collect all form data into an object and pass into create item function"
+    );
+    const itemData = {
+      title: title,
+      description: description,
+      address: user,
+      royalties: royalties,
+      category: category,
+      price: price,
+    };
+
+    await createItem(itemData);
+    console.log(itemData);
+  };
   return (
     <div className={classes.background}>
       <Link to="/" className={classes.link}>
@@ -233,6 +256,31 @@ function CreateNFT() {
                       InputLabelProps={{ className: classes.inputLabel }}
                       className={classes.textField}
                       fullWidth
+                      value={title}
+                      onChange={(e) => setTitle(e.target.value)}
+                    />
+                  </ThemeProvider>
+                </div>
+              </div>
+              <div className="my-3">
+                <h6 className={classes.inputLabel}>Category</h6>
+                <div className={classes.inputField}>
+                  <ThemeProvider theme={theme}>
+                    <TextField
+                      color="primary"
+                      id="filled-basic"
+                      variant="outlined"
+                      InputProps={{
+                        className: classes.multilineColor,
+                        classes: { notchedOutline: classes.noBorder },
+                      }}
+                      placeholder="Enter item 
+                      category here"
+                      InputLabelProps={{ className: classes.inputLabel }}
+                      className={classes.textField}
+                      fullWidth
+                      value={category}
+                      onChange={(e) => setCatogory(e.target.value)}
                     />
                   </ThemeProvider>
                 </div>
@@ -253,6 +301,8 @@ function CreateNFT() {
                       InputLabelProps={{ className: classes.inputLabel }}
                       className={classes.textField}
                       fullWidth
+                      value={description}
+                      onChange={(e) => setDescription(e.target.value)}
                     />
                   </ThemeProvider>
                 </div>
@@ -274,6 +324,8 @@ function CreateNFT() {
                       InputLabelProps={{ className: classes.inputLabel }}
                       className={classes.textField}
                       fullWidth
+                      value={price}
+                      onChange={(e) => setPrice(e.target.value)}
                     />
                   </ThemeProvider>
                 </div>
@@ -297,6 +349,8 @@ function CreateNFT() {
                       InputLabelProps={{ className: classes.inputLabel }}
                       className={classes.textField}
                       fullWidth
+                      value={royalties}
+                      onChange={(e) => setRoyalties(e.target.value)}
                     />
                   </ThemeProvider>
                 </div>
@@ -305,10 +359,11 @@ function CreateNFT() {
                 </small>
               </div>
               <div className="text-center">
-                <Link to="/market/create">
-                  {" "}
-                  <Button className={classes.createButton}>Create Item</Button>
-                </Link>{" "}
+                {/* <Link to="/market/create"> */}{" "}
+                <Button className={classes.createButton} onClick={createNft}>
+                  Create Item
+                </Button>
+                {/* </Link>{" "} */}
               </div>
             </div>
           </div>
@@ -334,4 +389,10 @@ function CreateNFT() {
     </div>
   );
 }
-export default CreateNFT;
+
+const mapStateToProps = (state) => ({
+  item: state.item,
+  auth: state.auth,
+});
+
+export default connect(mapStateToProps, { createItem })(CreateNFT);

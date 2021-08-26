@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import CategoryCard from "../components/CategoryCard";
 import InfiniteScroll from "react-infinite-scroll-component";
+import { connect } from "react-redux";
+import { loadItems } from "../actions/itemActions";
 
 let cardData = [
   { id: 1, title: "Ether" },
@@ -13,7 +15,7 @@ let cardData = [
   { id: 8, title: "bridge" },
 ];
 
-function AllItems() {
+function AllItems({ item: { items, loading, error } }) {
   // const [collection, setCollection] = useState([]);
   // const [itemCategories, setItemCategories] = useState(localCategories);
   const [numbers, setNumbers] = useState([1, 5, 4, 2, 3]);
@@ -21,8 +23,9 @@ function AllItems() {
   const [pageNo, setPageNo] = useState(0);
   const [itemList, setItemList] = useState([]);
 
-  useEffect(() => {
-    setItemList(cardData);
+  useEffect(async () => {
+    await loadItems();
+    // setItemList(items);
   }, []);
 
   const fetchMoreItems = async () => {
@@ -32,14 +35,14 @@ function AllItems() {
   return (
     <div>
       <InfiniteScroll
-        dataLength={itemList.length}
+        dataLength={items.length}
         next={fetchMoreItems}
         hasMore={true}
       >
         <div className="row mt-3">
           {" "}
           <h5 style={{ color: "white", paddingBottom: 30 }}>View All Items</h5>
-          {itemList.map((item, index) => (
+          {items.map((item, index) => (
             <div className="col-12 col-md-3" key={item._id}>
               <div className="d-flex justify-content-center">
                 <CategoryCard />
@@ -52,4 +55,8 @@ function AllItems() {
   );
 }
 
-export default AllItems;
+const mapStateToProps = (state) => ({
+  item: state.item,
+});
+
+export default connect(mapStateToProps, { loadItems })(AllItems);

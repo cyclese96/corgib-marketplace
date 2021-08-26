@@ -111,7 +111,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   sectionCard: {
-    backgroundColor: "#303f9f",
+    // backgroundColor: "#303f9f",
     width: 550,
     height: 550,
     padding: 10,
@@ -356,7 +356,6 @@ function ItemDetails() {
           </div>
         </div>
       </div>
-      <CategoryList />
     </div>
   );
 }

@@ -12,10 +12,17 @@ var ItemModel = new mongoose.Schema({
   description: {
     type: String,
   },
-  currency: {
+  price: {
     type: String,
     required: true,
     default: "BNB",
+  },
+  royalties: {
+    type: String,
+  },
+  category: {
+    type: String,
+    required: true,
   },
 
   createdDate: {

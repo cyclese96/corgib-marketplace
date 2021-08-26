@@ -232,7 +232,7 @@ function Profile() {
           </div>
           <div className="col-md-9">
             <div className={classes.sectionCard2}>
-              <div className="mt-3 d-flex justify-content-around">
+              <div className="mt-3 d-flex justify-content-start">
                 <div className={classes.tabs}>
                   <Button>
                     <div className={classes.tab}>

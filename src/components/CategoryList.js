@@ -122,11 +122,12 @@ const useStyles = makeStyles((theme) => ({
 
 var localCategories = [
   { id: 1, name: "Art" },
-  { id: 2, name: "Photography" },
-  { id: 3, name: "Game" },
+  { id: 2, name: "Defi" },
+  { id: 3, name: "Memes" },
   { id: 4, name: "Music" },
   { id: 5, name: "Defi" },
   { id: 6, name: "Domains" },
+  { id: 7, name: "Photography" },
 ];
 
 function CategoryList({ getItems, items, categories }) {

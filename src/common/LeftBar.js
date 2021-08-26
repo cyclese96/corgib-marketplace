@@ -10,7 +10,8 @@ const useStyles = makeStyles((theme) => ({
     minHeight: "100%",
     paddingTop: 50,
     padding: 10,
-    width: "100%",
+    position: "fixed",
+
     [theme.breakpoints.down("md")]: {
       display: "none",
     },
