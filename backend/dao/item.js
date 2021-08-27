@@ -44,6 +44,16 @@ const itemDao = {
     let catData = await ItemModel.find({ category });
     return catData;
   },
+
+  //Get recent item
+  async getItemByDate() {
+    return await ItemModel.find().sort({ createdDate: -1 });
+  },
+
+  //Get recent 3 item
+  async getRecentItem() {
+    return await ItemModel.find().sort({ _id: -1 }).limit(3);
+  },
 };
 
 module.exports = itemDao;

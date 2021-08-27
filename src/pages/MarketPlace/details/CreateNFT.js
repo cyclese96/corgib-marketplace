@@ -201,9 +201,7 @@ function CreateNFT({ createItem, auth: { user } }) {
   const [royalties, setRoyalties] = useState("");
 
   const createNft = async () => {
-    console.log(
-      "collect all form data into an object and pass into create item function"
-    );
+    console.log("Data of NFT ");
     const itemData = {
       title: title,
       description: description,
@@ -215,6 +213,20 @@ function CreateNFT({ createItem, auth: { user } }) {
 
     await createItem(itemData);
     console.log(itemData);
+  };
+
+  const [picture, setPicture] = useState(null);
+  const [imgData, setImgData] = useState(null);
+  const onChangePicture = (e) => {
+    if (e.target.files[0]) {
+      console.log("picture: ", e.target.files);
+      setPicture(e.target.files[0]);
+      const reader = new FileReader();
+      reader.addEventListener("load", () => {
+        setImgData(reader.result);
+      });
+      reader.readAsDataURL(e.target.files[0]);
+    }
   };
   return (
     <div className={classes.background}>
@@ -237,7 +249,7 @@ function CreateNFT({ createItem, auth: { user } }) {
               <div>
                 <h6 className={classes.inputLabel}>Upload File</h6>
                 <div className={classes.uploadCard}>
-                  <input type="file" />
+                  <input type="file" onChange={onChangePicture} />
                 </div>
               </div>
               <div className="my-3">
@@ -376,6 +388,7 @@ function CreateNFT({ createItem, auth: { user } }) {
                   src="https://lh3.googleusercontent.com/Z4cgoB6_SeB5swDd_kS27PBJjNM87tDBksEmwFnF5BFv7JDqo7lfpHiAb499QO5lV6L-41bQSzSGx8r8QAMneibbhkfgixAnOIDG_yU"
                   alt="img"
                   className={classes.previewImage}
+                  src={imgData}
                 />
                 <div className="p-3">
                   <h6 className={classes.heading}>Redemable logo of Tshirt</h6>

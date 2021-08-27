@@ -96,9 +96,9 @@ function TrendingCard() {
         <div className={classes.nftCard}>
           <div className={classes.bgImage}>
             <FavoriteBorderIcon />
-            <div className={classes.nftCardButton}>
+            {/* <div className={classes.nftCardButton}>
               <Button className={classes.normalButton}>Follow</Button>
-            </div>
+            </div> */}
           </div>
           <div className={classes.textBox}>
             <h6 className={classes.cardText}>Tommy Kill Hell</h6>

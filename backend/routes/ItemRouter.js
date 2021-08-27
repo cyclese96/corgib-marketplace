@@ -78,4 +78,29 @@ router.get("/item/category/:category", async (req, res, next) => {
   }
 });
 
+//Trending Item (Get recent Item)
+router.get("/recent/", async (req, res, next) => {
+  const id = req.params.id;
+
+  try {
+    const data = await itemDao.getItemByDate();
+    return res.status(200).send(data);
+  } catch (error) {
+    console.log(error);
+    return res.status(400).send("error");
+  }
+});
+
+//Trending 3 Item (Get recent Item)
+router.get("/top/", async (req, res, next) => {
+  const category = req.params.category;
+
+  try {
+    const data = await itemDao.getRecentItem();
+    return res.status(200).send(data);
+  } catch (error) {
+    console.log(error);
+    return res.status(400).send("error");
+  }
+});
 module.exports = router;
